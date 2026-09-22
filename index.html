@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AG Accesorios — Marroquinería cosida a mano</title>
+<title>AG ~creaciones~ — Marroquinería cosida a mano</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
   :root{
     --espresso:#2B1D14;
@@ -20,23 +21,31 @@
     --ink:#241A12;
     --thread:#57624A;
     --cream-text:#F4ECDD;
-    --radius-tag: 2px;
+    --radius-tag:2px;
     box-sizing:border-box;
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
   }
+
   *{box-sizing:border-box;}
-  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+
+  html{
+    scroll-padding-top:env(safe-area-inset-top,0px);
+    scroll-behavior:smooth;
+  }
+
   html,body{height:auto;}
+
   body{
     margin:0;
     background:var(--vellum);
     color:var(--ink);
-    font-family:'Work Sans', system-ui, -apple-system, sans-serif;
+    font-family:'Work Sans',system-ui,-apple-system,sans-serif;
     font-size:16px;
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
+
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --vellum:#221913;
@@ -46,6 +55,7 @@
       --cream-text:#F4ECDD;
     }
   }
+
   :root[data-theme="dark"]{
     --vellum:#221913;
     --vellum-2:#2B2018;
@@ -53,44 +63,109 @@
     --ink:#EEE3D2;
     --cream-text:#F4ECDD;
   }
-  img,svg{max-width:100%;display:block;}
+
+  img,svg{
+    max-width:100%;
+    display:block;
+  }
+
   a{color:inherit;}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
-  h1,h2,h3{font-family:'Fraunces', Georgia, serif;font-weight:600;margin:0;letter-spacing:-0.01em;}
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
   p{margin:0;}
 
-  /* ---------- Header ---------- */
   header{
-    position:sticky; top:0; z-index:20;
+    position:sticky;
+    top:0;
+    z-index:20;
     background:var(--vellum);
     border-bottom:1px solid var(--vellum-line);
     padding-top:env(safe-area-inset-top,0px);
   }
+
   .nav{
-    display:flex; align-items:center; justify-content:space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     padding:18px 28px;
-    max-width:1120px; margin:0 auto;
+    max-width:1120px;
+    margin:0 auto;
   }
+
   .logo{
-    font-family:'Fraunces', serif; font-weight:700; font-size:1.35rem;
-    color:var(--ink); text-decoration:none; letter-spacing:-0.01em;
-    display:flex; align-items:baseline; gap:8px;
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.35rem;
+    color:var(--ink);
+    text-decoration:none;
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
   }
+
   .logo .mark{
-    font-size:0.6rem; font-weight:500; color:var(--cognac);
-    border:1px dashed var(--cognac); padding:2px 6px; border-radius:20px;
+    font-size:0.6rem;
+    font-weight:500;
+    color:var(--cognac);
+    border:1px dashed var(--cognac);
+    padding:2px 6px;
+    border-radius:20px;
     letter-spacing:.04em;
   }
-  nav.links{display:flex; gap:32px; font-size:0.95rem;}
-  nav.links a{text-decoration:none; color:var(--ink); opacity:.8; transition:opacity .15s;}
+
+  nav.links{
+    display:flex;
+    gap:32px;
+    font-size:0.95rem;
+  }
+
+  nav.links a{
+    text-decoration:none;
+    color:var(--ink);
+    opacity:.8;
+    transition:opacity .15s;
+  }
+
   nav.links a:hover{opacity:1;}
+
   .nav-cta{
-    background:var(--cognac); color:#fff; text-decoration:none;
-    padding:10px 18px; font-size:0.9rem; font-weight:500;
+    background:var(--cognac);
+    color:#fff;
+    text-decoration:none;
+    padding:10px 18px;
+    font-size:0.9rem;
+    font-weight:500;
     border-radius:3px;
   }
-  .menu-toggle{display:none; background:none; border:none; cursor:pointer; padding:4px;}
-  .menu-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0;}
+
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:4px;
+  }
+
+  .menu-toggle span{
+    display:block;
+    width:22px;
+    height:2px;
+    background:var(--ink);
+    margin:5px 0;
+  }
 
   @media (max-width:760px){
     nav.links{display:none;}
@@ -98,7 +173,6 @@
     .nav-cta{display:none;}
   }
 
-  /* ---------- Hero ---------- */
   .hero{
     background:var(--espresso);
     color:var(--cream-text);
@@ -106,245 +180,601 @@
     position:relative;
     overflow:hidden;
   }
+
   .hero .wrap{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
   }
+
   .eyebrow-tag{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:0.85rem; color:var(--cognac-light);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.85rem;
+    color:var(--cognac-light);
     margin-bottom:22px;
   }
-  .eyebrow-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--cognac-light);}
+
+  .eyebrow-tag .dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--cognac-light);
+  }
+
   .hero h1{
-    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    font-size:clamp(2.2rem,5vw,3.4rem);
     line-height:1.08;
     color:var(--cream-text);
     max-width:11ch;
   }
+
   .hero p.lead{
-    margin-top:22px; font-size:1.1rem; color:#D9C9B4; max-width:42ch;
+    margin-top:22px;
+    font-size:1.1rem;
+    color:#D9C9B4;
+    max-width:42ch;
   }
-  .hero-cta-row{display:flex; gap:16px; margin-top:34px; flex-wrap:wrap;}
+
+  .hero-cta-row{
+    display:flex;
+    gap:16px;
+    margin-top:34px;
+    flex-wrap:wrap;
+  }
+
   .btn-primary{
-    background:var(--cognac); color:#fff; text-decoration:none;
-    padding:14px 26px; font-size:0.98rem; font-weight:500;
-    border-radius:3px; border:1px solid var(--cognac);
+    background:var(--cognac);
+    color:#fff;
+    text-decoration:none;
+    padding:14px 26px;
+    font-size:0.98rem;
+    font-weight:500;
+    border-radius:3px;
+    border:1px solid var(--cognac);
     transition:background .15s;
   }
+
   .btn-primary:hover{background:#A5622F;}
+
   .btn-ghost{
-    color:var(--cream-text); text-decoration:none;
-    padding:14px 22px; font-size:0.98rem; border:1px solid #5C4C3B;
+    color:var(--cream-text);
+    text-decoration:none;
+    padding:14px 22px;
+    font-size:0.98rem;
+    border:1px solid #5C4C3B;
     border-radius:3px;
   }
+
   .hero-visual{position:relative;}
+
   .stitch-dash{stroke-dasharray:6 5;}
 
-  /* ---------- Section shells ---------- */
   section{padding:88px 0;}
-  .section-head{max-width:52ch; margin-bottom:52px;}
-  .section-head .kicker{
-    font-size:0.85rem; color:var(--thread); font-weight:500; margin-bottom:10px; display:block;
-  }
-  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem); line-height:1.15;}
-  .section-head p{margin-top:16px; color:var(--ink); opacity:.75; font-size:1.02rem;}
 
-  /* ---------- Collection cards ---------- */
-  .collection-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .section-head{
+    max-width:52ch;
+    margin-bottom:52px;
+  }
+
+  .section-head .kicker{
+    font-size:0.85rem;
+    color:var(--thread);
+    font-weight:500;
+    margin-bottom:10px;
+    display:block;
+  }
+
+  .section-head h2{
+    font-size:clamp(1.7rem,3.4vw,2.3rem);
+    line-height:1.15;
+  }
+
+  .section-head p{
+    margin-top:16px;
+    color:var(--ink);
+    opacity:.75;
+    font-size:1.02rem;
+  }
+
+  .collection-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+
   .tag-card{
     background:var(--vellum-2);
     border:1.5px dashed var(--saddle);
     padding:34px 28px 30px;
     position:relative;
   }
+
   .tag-card .hole{
-    position:absolute; top:16px; right:16px;
-    width:10px; height:10px; border-radius:50%;
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:10px;
+    height:10px;
+    border-radius:50%;
     border:1.5px dashed var(--saddle);
   }
-  .tag-card .icon{color:var(--cognac); width:52px; height:52px; margin-bottom:22px;}
-  .tag-card h3{font-size:1.25rem; margin-bottom:10px;}
-  .tag-card p{color:var(--ink); opacity:.75; font-size:0.96rem;}
-  .tag-card .price{
-    display:block; margin-top:18px; font-family:'Fraunces',serif;
-    color:var(--saddle); font-size:1.05rem;
-  }
-  @media (max-width:860px){.collection-grid{grid-template-columns:1fr;}}
 
-  /* ---------- Process ---------- */
-  .process{background:var(--espresso); color:var(--cream-text);}
+  .tag-card .icon{
+    color:var(--cognac);
+    width:52px;
+    height:52px;
+    margin-bottom:22px;
+  }
+
+  .tag-card h3{
+    font-size:1.25rem;
+    margin-bottom:10px;
+  }
+
+  .tag-card p{
+    color:var(--ink);
+    opacity:.75;
+    font-size:0.96rem;
+  }
+
+  .tag-card .price{
+    display:block;
+    margin-top:18px;
+    font-family:'Fraunces',serif;
+    color:var(--saddle);
+    font-size:1.05rem;
+  }
+
+  @media (max-width:860px){
+    .collection-grid{grid-template-columns:1fr;}
+  }
+
+  .process{
+    background:var(--espresso);
+    color:var(--cream-text);
+  }
+
   .process .section-head p{color:#D9C9B4;}
   .process .section-head .kicker{color:var(--cognac-light);}
+
   .steps{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
     position:relative;
   }
+
   .steps::before{
     content:"";
-    position:absolute; top:22px; left:5%; right:5%; height:0;
+    position:absolute;
+    top:22px;
+    left:5%;
+    right:5%;
+    height:0;
     border-top:1.5px dashed #5C4C3B;
   }
-  .step{position:relative; padding-right:20px;}
-  .step .num{
-    width:44px; height:44px; border-radius:50%;
-    background:var(--espresso); border:1.5px solid var(--cognac);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Fraunces',serif; color:var(--cognac-light); font-size:1rem;
-    position:relative; z-index:1; margin-bottom:20px;
+
+  .step{
+    position:relative;
+    padding-right:20px;
   }
-  .step h3{font-size:1.05rem; color:var(--cream-text); margin-bottom:8px; font-weight:500;}
-  .step p{font-size:0.92rem; color:#C9B79E;}
+
+  .step .num{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:var(--espresso);
+    border:1.5px solid var(--cognac);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces',serif;
+    color:var(--cognac-light);
+    font-size:1rem;
+    position:relative;
+    z-index:1;
+    margin-bottom:20px;
+  }
+
+  .step h3{
+    font-size:1.05rem;
+    color:var(--cream-text);
+    margin-bottom:8px;
+    font-weight:500;
+  }
+
+  .step p{
+    font-size:0.92rem;
+    color:#C9B79E;
+  }
+
   @media (max-width:860px){
-    .steps{grid-template-columns:1fr; gap:32px;}
+    .steps{
+      grid-template-columns:1fr;
+      gap:32px;
+    }
+
     .steps::before{display:none;}
   }
 
-  /* ---------- Materials / story ---------- */
-  .story .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;}
-  .story-visual{background:var(--vellum-2); border:1px solid var(--vellum-line); padding:36px;}
-  .swatches{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:20px;}
-  .swatch{height:56px; border:1px solid rgba(0,0,0,.08);}
-  .story h2{font-size:clamp(1.6rem,3vw,2.1rem); margin-bottom:20px; max-width:16ch;}
-  .story p{color:var(--ink); opacity:.8; margin-bottom:16px; font-size:1.02rem;}
-  @media (max-width:860px){.story .wrap{grid-template-columns:1fr;}}
+  .story .wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
 
-  /* ---------- Testimonials ---------- */
-  .quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
-  .quote{border-top:2px solid var(--saddle); padding-top:18px;}
-  .quote p.q{font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; color:var(--ink); margin-bottom:14px;}
-  .quote .who{font-size:0.88rem; color:var(--thread);}
-  @media (max-width:860px){.quotes{grid-template-columns:1fr; gap:30px;}}
+  .story-visual{
+    background:var(--vellum-2);
+    border:1px solid var(--vellum-line);
+    padding:36px;
+  }
 
-  /* ---------- CTA band ---------- */
-  .cta-band{background:var(--cognac); color:#fff; padding:64px 0;}
-  .cta-band .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;}
-  .cta-band h2{color:#fff; font-size:clamp(1.5rem,3vw,2rem); max-width:20ch;}
-  .cta-band .btn-primary{background:var(--espresso); border-color:var(--espresso);}
+  .swatches{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:20px;
+  }
+
+  .swatch{
+    height:56px;
+    border:1px solid rgba(0,0,0,.08);
+  }
+
+  .story h2{
+    font-size:clamp(1.6rem,3vw,2.1rem);
+    margin-bottom:20px;
+    max-width:16ch;
+  }
+
+  .story p{
+    color:var(--ink);
+    opacity:.8;
+    margin-bottom:16px;
+    font-size:1.02rem;
+  }
+
+  @media (max-width:860px){
+    .story .wrap{grid-template-columns:1fr;}
+  }
+
+  .quotes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+
+  .quote{
+    border-top:2px solid var(--saddle);
+    padding-top:18px;
+  }
+
+  .quote p.q{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+
+  .quote .who{
+    font-size:0.88rem;
+    color:var(--thread);
+  }
+
+  @media (max-width:860px){
+    .quotes{
+      grid-template-columns:1fr;
+      gap:30px;
+    }
+  }
+
+  .cta-band{
+    background:var(--cognac);
+    color:#fff;
+    padding:64px 0;
+  }
+
+  .cta-band .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+
+  .cta-band h2{
+    color:#fff;
+    font-size:clamp(1.5rem,3vw,2rem);
+    max-width:20ch;
+  }
+
+  .cta-band .btn-primary{
+    background:var(--espresso);
+    border-color:var(--espresso);
+  }
+
   .cta-band .btn-primary:hover{background:#1E140D;}
 
-  /* ---------- Footer ---------- */
-  footer{background:var(--espresso); color:#C9B79E; padding:56px 0 calc(32px + env(safe-area-inset-bottom,0px));}
-  footer .top{
-    display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap;
-    padding-bottom:40px; border-bottom:1px dashed #5C4C3B;
-  }
-  footer .logo{color:var(--cream-text);}
-  footer .col h4{font-size:0.85rem; color:var(--cream-text); margin-bottom:14px; font-weight:500;}
-  footer .col a, footer .col p{display:block; font-size:0.92rem; color:#C9B79E; text-decoration:none; margin-bottom:8px;}
-  footer .bottom{
-    display:flex; justify-content:space-between; padding-top:26px; font-size:0.85rem; color:#8A7A65; flex-wrap:wrap; gap:10px;
+  footer{
+    background:var(--espresso);
+    color:#C9B79E;
+    padding:56px 0 calc(32px + env(safe-area-inset-bottom,0px));
   }
 
-  /* ---------- Mobile type scale ---------- */
+  footer .top{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+    padding-bottom:40px;
+    border-bottom:1px dashed #5C4C3B;
+  }
+
+  footer .logo{color:var(--cream-text);}
+
+  footer .col h4{
+    font-size:0.85rem;
+    color:var(--cream-text);
+    margin-bottom:14px;
+    font-weight:500;
+  }
+
+  footer .col a,
+  footer .col p{
+    display:block;
+    font-size:0.92rem;
+    color:#C9B79E;
+    text-decoration:none;
+    margin-bottom:8px;
+  }
+
+  footer .bottom{
+    display:flex;
+    justify-content:space-between;
+    padding-top:26px;
+    font-size:0.85rem;
+    color:#8A7A65;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
   @media (max-width:600px){
     body{font-size:15px;}
+
     .wrap{padding:0 22px;}
+
     .hero{padding:56px 0 64px;}
-    .hero h1{font-size:clamp(1.7rem, 7.5vw, 2.3rem); max-width:100%;}
+
+    .hero h1{
+      font-size:clamp(1.7rem,7.5vw,2.3rem);
+      max-width:100%;
+    }
+
     .hero p.lead{font-size:0.98rem;}
+
     .eyebrow-tag{font-size:0.78rem;}
-    .btn-primary, .btn-ghost, .nav-cta{padding:12px 18px; font-size:0.9rem;}
+
+    .btn-primary,
+    .btn-ghost,
+    .nav-cta{
+      padding:12px 18px;
+      font-size:0.9rem;
+    }
+
     section{padding:56px 0;}
+
     .section-head{margin-bottom:34px;}
-    .section-head h2{font-size:clamp(1.35rem, 6.5vw, 1.7rem);}
-    .section-head p{font-size:0.92rem; margin-top:12px;}
+
+    .section-head h2{
+      font-size:clamp(1.35rem,6.5vw,1.7rem);
+    }
+
+    .section-head p{
+      font-size:0.92rem;
+      margin-top:12px;
+    }
+
     .tag-card{padding:26px 22px 24px;}
+
     .tag-card h3{font-size:1.1rem;}
+
     .tag-card p{font-size:0.9rem;}
-    .story h2{font-size:clamp(1.3rem, 6.5vw, 1.7rem); max-width:100%;}
+
+    .story h2{
+      font-size:clamp(1.3rem,6.5vw,1.7rem);
+      max-width:100%;
+    }
+
     .story p{font-size:0.94rem;}
+
     .quote p.q{font-size:0.96rem;}
+
     .cta-band{padding:44px 0;}
-    .cta-band h2{font-size:clamp(1.25rem, 6.5vw, 1.6rem);}
+
+    .cta-band h2{
+      font-size:clamp(1.25rem,6.5vw,1.6rem);
+    }
+
     footer .logo{font-size:1.15rem;}
   }
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="nav">
-    <a class="logo" href="#top">AG Accesorios <span class="mark">hecho a mano</span></a>
+
+    <a class="logo" href="#top">
+      AG ~creaciones~ <span class="mark">hecho a mano</span>
+    </a>
+
     <nav class="links">
       <a href="#coleccion">Colección</a>
       <a href="#proceso">El proceso</a>
       <a href="#historia">Nosotros</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="nav-cta" href="#contacto">Escribir por WhatsApp</a>
-    <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+
+    <a class="nav-cta"
+       href="https://wa.me/5492615320937"
+       target="_blank"
+       rel="noopener">
+       Escribir por WhatsApp
+    </a>
+
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
   </div>
 </header>
 
 <section class="hero" id="top">
   <div class="wrap">
+
     <div>
-      <span class="eyebrow-tag"><span class="dot"></span>Marroquinería artesanal</span>
+      <span class="eyebrow-tag">
+        <span class="dot"></span>
+        Marroquinería artesanal
+      </span>
+
       <h1>Cada puntada la damos nosotros, a mano.</h1>
-      <p class="lead">Bolsos, mochilas y riñoneras en cuero, cosidos uno por uno en nuestro taller. Sin líneas de producción, sin dos piezas iguales.</p>
+
+      <p class="lead">
+        Bolsos, mochilas y riñoneras en cuero, cosidos uno por uno en nuestro taller.
+        Sin líneas de producción, sin dos piezas iguales.
+      </p>
+
       <div class="hero-cta-row">
         <a class="btn-primary" href="#coleccion">Ver la colección</a>
         <a class="btn-ghost" href="#historia">Conocer el taller</a>
       </div>
     </div>
+
     <div class="hero-visual">
-      <svg viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de un bolso de cuero cosido a mano">
-        <rect x="60" y="120" width="200" height="160" rx="6" fill="none" stroke="#D9C9B4" stroke-width="2"/>
-        <path d="M100 120 C100 70 220 70 220 120" fill="none" stroke="#B9713C" stroke-width="3"/>
-        <line x1="72" y1="150" x2="248" y2="150" stroke="#B9713C" stroke-width="1.5" class="stitch-dash"/>
-        <line x1="72" y1="255" x2="248" y2="255" stroke="#B9713C" stroke-width="1.5" class="stitch-dash"/>
-        <line x1="72" y1="130" x2="72" y2="270" stroke="#5C4C3B" stroke-width="1.5" class="stitch-dash"/>
-        <line x1="248" y1="130" x2="248" y2="270" stroke="#5C4C3B" stroke-width="1.5" class="stitch-dash"/>
+      <svg viewBox="0 0 360 320"
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="Ilustración de un bolso de cuero cosido a mano">
+
+        <rect x="60" y="120" width="200" height="160" rx="6"
+              fill="none" stroke="#D9C9B4" stroke-width="2"/>
+
+        <path d="M100 120 C100 70 220 70 220 120"
+              fill="none" stroke="#B9713C" stroke-width="3"/>
+
+        <line x1="72" y1="150" x2="248" y2="150"
+              stroke="#B9713C" stroke-width="1.5"
+              class="stitch-dash"/>
+
+        <line x1="72" y1="255" x2="248" y2="255"
+              stroke="#B9713C" stroke-width="1.5"
+              class="stitch-dash"/>
+
+        <line x1="72" y1="130" x2="72" y2="270"
+              stroke="#5C4C3B" stroke-width="1.5"
+              class="stitch-dash"/>
+
+        <line x1="248" y1="130" x2="248" y2="270"
+              stroke="#5C4C3B" stroke-width="1.5"
+              class="stitch-dash"/>
+
         <circle cx="160" cy="200" r="3" fill="#D79A66"/>
-        <rect x="140" y="205" width="40" height="14" rx="2" fill="none" stroke="#D9C9B4" stroke-width="1.5"/>
+
+        <rect x="140" y="205" width="40" height="14" rx="2"
+              fill="none" stroke="#D9C9B4" stroke-width="1.5"/>
       </svg>
     </div>
+
   </div>
 </section>
 
 <section id="coleccion">
   <div class="wrap">
+
     <div class="section-head">
       <span class="kicker">Colección</span>
       <h2>Tres piezas, un mismo oficio</h2>
-      <p>Trabajamos cuero curtido y algodón encerado. Cada modelo se corta, se arma y se cose por completo en el taller.</p>
+      <p>
+        Trabajamos cuero curtido y algodón encerado.
+        Cada modelo se corta, se arma y se cose por completo en el taller.
+      </p>
     </div>
+
     <div class="collection-grid">
 
       <div class="tag-card">
         <span class="hole"></span>
-        <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 26c0-9 6-15 14-15s14 6 14 15" stroke-dasharray="4 3"/>
+
+        <svg class="icon" viewBox="0 0 64 64"
+             fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 26c0-9 6-15 14-15s14 6 14 15"
+                stroke-dasharray="4 3"/>
           <rect x="12" y="26" width="40" height="28" rx="3"/>
-          <line x1="12" y1="36" x2="52" y2="36" stroke-dasharray="3 3" stroke-width="1.5"/>
+          <line x1="12" y1="36" x2="52" y2="36"
+                stroke-dasharray="3 3" stroke-width="1.5"/>
         </svg>
+
         <h3>Bolsos</h3>
-        <p>De mano y de hombro, para el día a día o para salir. Forro interior y cierre reforzado.</p>
+
+        <p>
+          De mano y de hombro, para el día a día o para salir.
+          Forro interior y cierre reforzado.
+        </p>
+
         <span class="price">Desde $180.000</span>
       </div>
 
       <div class="tag-card">
         <span class="hole"></span>
-        <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+
+        <svg class="icon" viewBox="0 0 64 64"
+             fill="none" stroke="currentColor" stroke-width="2">
           <rect x="14" y="18" width="36" height="38" rx="4"/>
-          <path d="M22 18v-4c0-3 3-5 10-5s10 2 10 5v4" stroke-dasharray="4 3"/>
-          <line x1="14" y1="30" x2="50" y2="30" stroke-dasharray="3 3" stroke-width="1.5"/>
+          <path d="M22 18v-4c0-3 3-5 10-5s10 2 10 5v4"
+                stroke-dasharray="4 3"/>
+          <line x1="14" y1="30" x2="50" y2="30"
+                stroke-dasharray="3 3" stroke-width="1.5"/>
           <rect x="26" y="36" width="12" height="8" rx="1"/>
         </svg>
+
         <h3>Mochilas</h3>
-        <p>Correas ajustables y espalda acolchada. Pensadas para llevar peso sin perder forma.</p>
+
+        <p>
+          Correas ajustables y espalda acolchada.
+          Pensadas para llevar peso sin perder forma.
+        </p>
+
         <span class="price">Desde $260.000</span>
       </div>
 
       <div class="tag-card">
         <span class="hole"></span>
-        <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M10 34c0-12 10-20 22-20s22 8 22 20" stroke-dasharray="4 3"/>
+
+        <svg class="icon" viewBox="0 0 64 64"
+             fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 34c0-12 10-20 22-20s22 8 22 20"
+                stroke-dasharray="4 3"/>
           <rect x="18" y="30" width="28" height="18" rx="3"/>
-          <line x1="18" y1="39" x2="46" y2="39" stroke-dasharray="3 3" stroke-width="1.5"/>
+          <line x1="18" y1="39" x2="46" y2="39"
+                stroke-dasharray="3 3" stroke-width="1.5"/>
         </svg>
+
         <h3>Riñoneras</h3>
-        <p>Compactas y livianas, con correa regulable. Ideales para andar con lo esencial.</p>
+
+        <p>
+          Compactas y livianas, con correa regulable.
+          Ideales para andar con lo esencial.
+        </p>
+
         <span class="price">Desde $120.000</span>
       </div>
 
@@ -354,40 +784,66 @@
 
 <section class="process" id="proceso">
   <div class="wrap">
+
     <div class="section-head">
       <span class="kicker">Cómo se hace</span>
       <h2>De la piel curtida a la pieza terminada</h2>
-      <p>Cuatro pasos, todos hechos con las manos, del primer corte a la última puntada.</p>
+      <p>
+        Cuatro pasos, todos hechos con las manos,
+        del primer corte a la última puntada.
+      </p>
     </div>
+
     <div class="steps">
+
       <div class="step">
         <div class="num">1</div>
         <h3>Selección del cuero</h3>
-        <p>Revisamos cada piel a contraluz y descartamos lo que no cumple el estándar.</p>
+        <p>
+          Revisamos cada piel a contraluz y descartamos
+          lo que no cumple el estándar.
+        </p>
       </div>
+
       <div class="step">
         <div class="num">2</div>
         <h3>Corte y patronaje</h3>
-        <p>Los moldes se marcan pieza por pieza para aprovechar cada centímetro de piel.</p>
+        <p>
+          Los moldes se marcan pieza por pieza para aprovechar
+          cada centímetro de piel.
+        </p>
       </div>
+
       <div class="step">
         <div class="num">3</div>
         <h3>Cosido a mano</h3>
-        <p>Punto de silla con hilo encerado: dos agujas, una puntada a la vez.</p>
+        <p>
+          Punto de silla con hilo encerado:
+          dos agujas, una puntada a la vez.
+        </p>
       </div>
+
       <div class="step">
         <div class="num">4</div>
         <h3>Acabado y control</h3>
-        <p>Se pulen los bordes, se revisan las costuras y se firma cada pieza.</p>
+        <p>
+          Se pulen los bordes, se revisan las costuras
+          y se firma cada pieza.
+        </p>
       </div>
+
     </div>
   </div>
 </section>
 
 <section class="story" id="historia">
   <div class="wrap">
+
     <div class="story-visual">
-      <p style="font-size:0.85rem;color:var(--thread);margin-bottom:6px;">Paleta de cueros</p>
+      <p style="font-size:0.85rem;color:var(--thread);margin-bottom:6px;">
+        Paleta de cueros
+      </p>
+
       <div class="swatches">
         <div class="swatch" style="background:#7A4A28"></div>
         <div class="swatch" style="background:#B9713C"></div>
@@ -395,73 +851,134 @@
         <div class="swatch" style="background:#D9C9B4"></div>
       </div>
     </div>
+
     <div>
-      <h2>AG Accesorios empezó en una mesa de trabajo, no en una fábrica</h2>
-      <p>Seguimos siendo un taller pequeño. Cada bolso, mochila y riñonera pasa por las mismas manos, de principio a fin, y eso se nota en la puntada.</p>
-      <p>No manejamos inventario en serie: hacemos lotes cortos y avisamos cuando un modelo se agota, para no prometer lo que no podemos coser a tiempo.</p>
+      <h2>
+        AG ~creaciones~ empezó en una mesa de trabajo,
+        no en una fábrica
+      </h2>
+
+      <p>
+        Seguimos siendo un taller pequeño.
+        Cada bolso, mochila y riñonera pasa por las mismas manos,
+        de principio a fin, y eso se nota en la puntada.
+      </p>
+
+      <p>
+        No manejamos inventario en serie: hacemos lotes cortos
+        y avisamos cuando un modelo se agota, para no prometer
+        lo que no podemos coser a tiempo.
+      </p>
     </div>
+
   </div>
 </section>
 
 <section id="opiniones">
   <div class="wrap">
+
     <div class="section-head">
       <span class="kicker">Quienes ya llevan una pieza</span>
       <h2>Lo que cuentan nuestros clientes</h2>
     </div>
+
     <div class="quotes">
+
       <div class="quote">
-        <p class="q">"Se nota la diferencia frente a algo hecho en serie. La costura no se ha soltado ni un poco."</p>
+        <p class="q">
+          "Se nota la diferencia frente a algo hecho en serie.
+          La costura no se ha soltado ni un poco."
+        </p>
         <p class="who">Cliente en Bogotá</p>
       </div>
+
       <div class="quote">
-        <p class="q">"Pedí la riñonera para el día a día y terminó siendo lo que más uso de mi clóset."</p>
+        <p class="q">
+          "Pedí la riñonera para el día a día y terminó siendo
+          lo que más uso de mi clóset."
+        </p>
         <p class="who">Cliente en Medellín</p>
       </div>
+
       <div class="quote">
-        <p class="q">"Contestan rápido, cuentan el tiempo real de entrega y la pieza llegó tal cual la foto."</p>
+        <p class="q">
+          "Contestan rápido, cuentan el tiempo real de entrega
+          y la pieza llegó tal cual la foto."
+        </p>
         <p class="who">Cliente en Cali</p>
       </div>
+
     </div>
   </div>
 </section>
 
 <section class="cta-band" id="contacto">
   <div class="wrap">
+
     <h2>¿Lista o listo para encargar tu pieza?</h2>
-    <a class="btn-primary" href="https://wa.me/000000000" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+
+    <a class="btn-primary"
+       href="https://wa.me/5492615320937"
+       target="_blank"
+       rel="noopener">
+       Escribir por WhatsApp
+    </a>
+
   </div>
 </section>
 
 <footer>
   <div class="wrap">
+
     <div class="top">
+
       <div>
-        <a class="logo" href="#top">AG Accesorios</a>
-        <p style="max-width:32ch;margin-top:12px;font-size:0.92rem;">Marroquinería cosida a mano: bolsos, mochilas y riñoneras hechos por encargo.</p>
+        <a class="logo" href="#top">AG ~creaciones~</a>
+
+        <p style="max-width:32ch;margin-top:12px;font-size:0.92rem;">
+          Marroquinería cosida a mano:
+          bolsos, mochilas y riñoneras hechos por encargo.
+        </p>
       </div>
+
       <div class="col">
         <h4>Colección</h4>
         <a href="#coleccion">Bolsos</a>
         <a href="#coleccion">Mochilas</a>
         <a href="#coleccion">Riñoneras</a>
       </div>
+
       <div class="col">
         <h4>Taller</h4>
         <a href="#proceso">El proceso</a>
         <a href="#historia">Nosotros</a>
       </div>
+
       <div class="col">
         <h4>Contacto</h4>
-        <a href="https://wa.me/000000000" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="mailto:hola@agaccesorios.com">hola@agaccesorios.com</a>
-        <a href="#">Instagram @agaccesorios</a>
+
+        <a href="https://wa.me/5492615320937"
+           target="_blank"
+           rel="noopener">
+           WhatsApp
+        </a>
+
+        <a href="mailto:hola@agaccesorios.com">
+          hola@agaccesorios.com
+        </a>
+
+        <a href="#">
+          Instagram @agcreaciones
+        </a>
       </div>
+
     </div>
+
     <div class="bottom">
-      <span>© 2026 AG Accesorios. Todos los derechos reservados.</span>
+      <span>© 2026 AG ~creaciones~. Todos los derechos reservados.</span>
       <span>Hecho a mano, uno a la vez.</span>
     </div>
+
   </div>
 </footer>
 
