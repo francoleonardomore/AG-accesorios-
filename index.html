@@ -20,7 +20,6 @@
 
   --coral:#E87873;
 
-  /* BEIGE */
   --cream:#E8DCCB;
   --cream-soft:#EFE2D0;
   --cream-light:#F4EBDD;
@@ -96,6 +95,9 @@ header{
   gap:25px;
 }
 
+
+/* LOGO REAL */
+
 .logo{
   display:flex;
   align-items:center;
@@ -107,16 +109,23 @@ header{
 }
 
 .logo-mark{
-  width:43px;
-  height:43px;
+  width:52px;
+  height:52px;
   border-radius:50%;
-  background:var(--pink-light);
-  color:var(--pink-dark);
-  display:grid;
-  place-items:center;
-  font-family:"Fraunces",serif;
-  font-size:16px;
-  border:2px solid var(--pink-soft);
+  overflow:hidden;
+  background:#000;
+  border:2px solid #D4A64A;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.logo-mark img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .logo span{
@@ -986,8 +995,8 @@ footer p{
   }
 
   .logo-mark{
-    width:39px;
-    height:39px;
+    width:45px;
+    height:45px;
   }
 
   .hero{
@@ -1137,6 +1146,7 @@ footer p{
   .product-info{
     padding:18px;
   }
+
 }
 
 </style>
@@ -1154,8 +1164,9 @@ footer p{
 
     <a href="#inicio" class="logo">
 
+      <!-- LOGO REAL DE AG CREACIONES -->
       <div class="logo-mark">
-        AG
+        <img src="logo-ag.jpg" alt="AG Creaciones">
       </div>
 
       <div>
