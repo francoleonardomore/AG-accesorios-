@@ -50,6 +50,7 @@
 
 html{
   scroll-behavior:smooth;
+  scroll-padding-top:90px;
 }
 
 body{
@@ -68,6 +69,10 @@ a{
 img{
   max-width:100%;
   display:block;
+}
+
+button{
+  font-family:inherit;
 }
 
 .container{
@@ -96,7 +101,7 @@ header{
 }
 
 
-/* LOGO REAL */
+/* LOGO */
 
 .logo{
   display:flex;
@@ -125,7 +130,6 @@ header{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
 }
 
 .logo span{
@@ -164,7 +168,7 @@ header{
 .nav-button{
   background:var(--pink);
   color:#FFFFFF!important;
-  padding:12px 19px;
+  padding:12px 19px!important;
   border-radius:50px;
   transition:.3s;
 }
@@ -172,6 +176,10 @@ header{
 .nav-button:hover{
   background:var(--pink-dark);
   transform:translateY(-2px);
+}
+
+.nav-button::after{
+  display:none;
 }
 
 .menu-toggle{
@@ -276,6 +284,7 @@ header{
   font-weight:700;
   font-size:14px;
   transition:.3s;
+  cursor:pointer;
 }
 
 .btn-primary{
@@ -345,6 +354,11 @@ header{
 
   border-radius:28px 28px 35px 35px;
   box-shadow:0 28px 45px rgba(201,54,91,.18);
+  transition:.5s ease;
+}
+
+.hero-circle:hover .bag{
+  transform:translate(-50%,-50%) translateY(-8px);
 }
 
 .bag::before{
@@ -391,6 +405,11 @@ header{
   font-size:14px;
   text-align:center;
   padding:15px;
+  transition:.3s;
+}
+
+.hero-detail:hover{
+  transform:scale(1.06);
 }
 
 .detail-one{
@@ -421,6 +440,11 @@ header{
   padding:23px 20px;
   text-align:center;
   border-right:1px solid var(--line);
+  transition:.3s;
+}
+
+.trust-item:hover{
+  background:var(--cream-light);
 }
 
 .trust-item:last-child{
@@ -469,6 +493,36 @@ header{
 }
 
 
+/* CATEGORY FILTER */
+
+.category-bar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:30px;
+}
+
+.category-btn{
+  border:1px solid var(--pink-soft);
+  background:var(--white);
+  color:var(--pink-dark);
+  border-radius:50px;
+  padding:10px 17px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.category-btn:hover,
+.category-btn.active{
+  background:var(--pink);
+  border-color:var(--pink);
+  color:white;
+  transform:translateY(-2px);
+}
+
+
 /* PRODUCTS */
 
 .products{
@@ -483,11 +537,27 @@ header{
   border-radius:var(--radius);
   overflow:hidden;
   transition:.35s;
+  position:relative;
 }
 
 .product-card:hover{
   transform:translateY(-7px);
   box-shadow:var(--shadow);
+}
+
+.product-badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+  z-index:5;
+  background:var(--pink);
+  color:white;
+  padding:7px 11px;
+  border-radius:50px;
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.5px;
 }
 
 .product-image{
@@ -533,6 +603,12 @@ header{
 
   box-shadow:
     0 22px 30px rgba(201,54,91,.16);
+
+  transition:.4s ease;
+}
+
+.product-card:hover .product-shape{
+  transform:translateY(-5px) rotate(-2deg);
 }
 
 .product-shape::before{
@@ -596,6 +672,7 @@ header{
 
 .product-btn:hover{
   background:var(--pink-dark);
+  transform:translateY(-2px);
 }
 
 
@@ -649,6 +726,7 @@ header{
   display:grid;
   place-items:center;
   font-weight:800;
+  flex-shrink:0;
 }
 
 .artisan-visual{
@@ -664,6 +742,7 @@ header{
 
   position:relative;
   overflow:hidden;
+  box-shadow:var(--shadow);
 }
 
 .artisan-visual::before{
@@ -693,6 +772,12 @@ header{
   border:1px solid var(--line);
   padding:30px;
   border-radius:var(--radius);
+  transition:.3s;
+}
+
+.process-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
 }
 
 .process-number{
@@ -752,6 +837,20 @@ header{
 
   position:relative;
   box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.about-box::before{
+  content:"ARTESANAL";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-family:"Fraunces",serif;
+  font-size:26px;
+  letter-spacing:3px;
+  color:rgba(255,255,255,.55);
+  transform:rotate(-8deg);
 }
 
 .about-box::after{
@@ -892,6 +991,35 @@ footer p{
 
 .whatsapp-float:hover{
   transform:scale(1.08);
+}
+
+.whatsapp-label{
+  position:fixed;
+  right:87px;
+  bottom:28px;
+  background:var(--white);
+  color:var(--pink-dark);
+  border:1px solid var(--line);
+  padding:8px 13px;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:700;
+  box-shadow:var(--shadow);
+  z-index:1999;
+}
+
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 
@@ -1083,6 +1211,15 @@ footer p{
     margin-bottom:15px;
   }
 
+  .category-bar{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .category-btn{
+    width:100%;
+  }
+
   .products{
     grid-template-columns:1fr;
   }
@@ -1116,6 +1253,10 @@ footer p{
   .footer-bottom{
     flex-direction:column;
     gap:7px;
+  }
+
+  .whatsapp-label{
+    display:none;
   }
 }
 
@@ -1164,7 +1305,6 @@ footer p{
 
     <a href="#inicio" class="logo">
 
-      <!-- LOGO REAL DE AG CREACIONES -->
       <div class="logo-mark">
         <img src="logo-ag.jpg" alt="AG Creaciones">
       </div>
@@ -1209,7 +1349,8 @@ footer p{
     <button
       class="menu-toggle"
       id="menuToggle"
-      aria-label="Abrir menú">
+      aria-label="Abrir menú"
+      aria-expanded="false">
 
       ☰
 
@@ -1231,7 +1372,7 @@ footer p{
   <div class="container hero-grid">
 
 
-    <div>
+    <div class="reveal">
 
       <div class="eyebrow">
         Marroquinería artesanal
@@ -1276,7 +1417,7 @@ footer p{
 
 
 
-    <div class="hero-visual">
+    <div class="hero-visual reveal">
 
       <div class="hero-circle">
 
@@ -1310,7 +1451,7 @@ footer p{
 
 
 
-<!-- TRUST -->
+<!-- CONFIANZA -->
 
 <section class="trust">
 
@@ -1320,7 +1461,7 @@ footer p{
     <div class="trust-item">
 
       <strong>
-        Hecho a mano
+        ✓ Hecho a mano
       </strong>
 
       <span>
@@ -1333,7 +1474,7 @@ footer p{
     <div class="trust-item">
 
       <strong>
-        Por encargo
+        ✓ Por encargo
       </strong>
 
       <span>
@@ -1346,7 +1487,7 @@ footer p{
     <div class="trust-item">
 
       <strong>
-        Atención directa
+        ✓ Atención directa
       </strong>
 
       <span>
@@ -1394,13 +1535,58 @@ footer p{
     </div>
 
 
+    <!-- CATEGORÍAS -->
+
+    <div class="category-bar">
+
+      <button
+        class="category-btn active"
+        data-filter="all">
+
+        Todos
+
+      </button>
+
+      <button
+        class="category-btn"
+        data-filter="bolsos">
+
+        👜 Bolsos
+
+      </button>
+
+      <button
+        class="category-btn"
+        data-filter="mochilas">
+
+        🎒 Mochilas
+
+      </button>
+
+      <button
+        class="category-btn"
+        data-filter="rinoneras">
+
+        Riñoneras
+
+      </button>
+
+    </div>
+
+
 
     <div class="products">
 
 
       <!-- BOLSOS -->
 
-      <article class="product-card">
+      <article
+        class="product-card reveal"
+        data-category="bolsos">
+
+        <div class="product-badge">
+          Destacado
+        </div>
 
         <div class="product-image">
 
@@ -1446,7 +1632,9 @@ footer p{
 
       <!-- MOCHILAS -->
 
-      <article class="product-card">
+      <article
+        class="product-card reveal"
+        data-category="mochilas">
 
         <div class="product-image">
 
@@ -1499,7 +1687,9 @@ footer p{
 
       <!-- RIÑONERAS -->
 
-      <article class="product-card">
+      <article
+        class="product-card reveal"
+        data-category="rinoneras">
 
         <div class="product-image">
 
@@ -1564,7 +1754,7 @@ footer p{
   <div class="container artisan-grid">
 
 
-    <div>
+    <div class="reveal">
 
       <div class="eyebrow">
         El valor de lo artesanal
@@ -1645,7 +1835,7 @@ footer p{
     </div>
 
 
-    <div class="artisan-visual"></div>
+    <div class="artisan-visual reveal"></div>
 
 
   </div>
@@ -1690,7 +1880,7 @@ footer p{
     <div class="process">
 
 
-      <div class="process-card">
+      <div class="process-card reveal">
 
         <div class="process-number">
           01
@@ -1708,7 +1898,7 @@ footer p{
       </div>
 
 
-      <div class="process-card">
+      <div class="process-card reveal">
 
         <div class="process-number">
           02
@@ -1726,7 +1916,7 @@ footer p{
       </div>
 
 
-      <div class="process-card">
+      <div class="process-card reveal">
 
         <div class="process-number">
           03
@@ -1759,10 +1949,10 @@ footer p{
   <div class="container about-grid">
 
 
-    <div class="about-box"></div>
+    <div class="about-box reveal"></div>
 
 
-    <div>
+    <div class="reveal">
 
       <div class="eyebrow">
         AG ~creaciones~
@@ -1814,7 +2004,7 @@ footer p{
 
   <div class="container">
 
-    <div class="cta-box">
+    <div class="cta-box reveal">
 
 
       <div class="eyebrow">
@@ -1967,6 +2157,10 @@ footer p{
 
 <!-- WHATSAPP -->
 
+<div class="whatsapp-label">
+  Consultanos
+</div>
+
 <a
   class="whatsapp-float"
   href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20quiero%20hacer%20una%20consulta."
@@ -1979,9 +2173,11 @@ footer p{
 
 
 
-<!-- MENU MOBILE -->
+<!-- JAVASCRIPT -->
 
 <script>
+
+/* MENÚ MOBILE */
 
 const menuToggle =
   document.getElementById("menuToggle");
@@ -1994,6 +2190,17 @@ menuToggle.addEventListener("click", () => {
 
   navLinks.classList.toggle("active");
 
+  const abierto =
+    navLinks.classList.contains("active");
+
+  menuToggle.setAttribute(
+    "aria-expanded",
+    abierto
+  );
+
+  menuToggle.innerHTML =
+    abierto ? "×" : "☰";
+
 });
 
 
@@ -2005,9 +2212,119 @@ document
 
       navLinks.classList.remove("active");
 
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.innerHTML = "☰";
+
     });
 
   });
+
+
+
+/* FILTRO DE CATEGORÍAS */
+
+const categoryButtons =
+  document.querySelectorAll(".category-btn");
+
+const productCards =
+  document.querySelectorAll(".product-card");
+
+
+categoryButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    categoryButtons.forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    const filter =
+      button.getAttribute("data-filter");
+
+
+    productCards.forEach(card => {
+
+      const category =
+        card.getAttribute("data-category");
+
+
+      if(
+        filter === "all" ||
+        category === filter
+      ){
+
+        card.style.display = "";
+
+        setTimeout(() => {
+          card.style.opacity = "1";
+          card.style.transform = "";
+        }, 30);
+
+      }else{
+
+        card.style.opacity = "0";
+        card.style.transform = "scale(.96)";
+
+        setTimeout(() => {
+          card.style.display = "none";
+        }, 250);
+
+      }
+
+    });
+
+  });
+
+});
+
+
+
+/* ANIMACIONES AL HACER SCROLL */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+
+const observer =
+  new IntersectionObserver(
+
+    entries => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("visible");
+
+          observer.unobserve(
+            entry.target
+          );
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold:.12
+    }
+
+  );
+
+
+revealElements.forEach(element => {
+
+  observer.observe(element);
+
+});
+
 
 </script>
 
