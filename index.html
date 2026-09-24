@@ -1231,6 +1231,7 @@ footer p{
   font-weight:800;
   color:var(--pink-dark);
   font-size:13px;
+  text-align:right;
 }
 
 .cart-footer{
@@ -1243,12 +1244,25 @@ footer p{
   display:flex;
   justify-content:space-between;
   gap:15px;
-  margin-bottom:15px;
+  margin-bottom:10px;
   color:var(--pink-dark);
 }
 
 .cart-total-row strong{
   font-size:20px;
+}
+
+.cart-delivery-row{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:15px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.cart-delivery-row strong{
+  color:var(--pink-dark);
 }
 
 .delivery-note{
@@ -1388,58 +1402,32 @@ footer p{
   resize:vertical;
 }
 
-.delivery-options{
+
+/* =========================
+   PAYMENT
+========================= */
+
+.payment-options{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
   margin-bottom:20px;
 }
 
-.delivery-option{
-  border:1px solid var(--line);
-  border-radius:13px;
-  padding:14px;
-  background:#fff;
-  color:var(--pink-dark);
-  transition:.2s;
-}
-
-.delivery-option input{
-  display:none;
-}
-
-.delivery-option.selected{
-  border-color:var(--pink);
-  background:var(--pink-light);
-}
-
-.delivery-option strong{
-  display:block;
-  font-size:13px;
-  margin-bottom:3px;
-}
-
-.delivery-option span{
-  color:var(--muted);
-  font-size:11px;
-}
-
-.payment-options{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-bottom:20px;
-}
-
 .payment-option{
   border:1px solid var(--line);
   border-radius:12px;
-  padding:12px 8px;
+  padding:14px 10px;
   text-align:center;
   color:var(--pink-dark);
-  font-size:11px;
+  font-size:12px;
   font-weight:700;
   cursor:pointer;
+  transition:.2s;
+}
+
+.payment-option:hover{
+  border-color:var(--pink-soft);
 }
 
 .payment-option.selected{
@@ -1450,6 +1438,11 @@ footer p{
 .payment-option input{
   display:none;
 }
+
+
+/* =========================
+   CHECKOUT SUMMARY
+========================= */
 
 .checkout-summary{
   background:var(--cream-light);
@@ -1472,6 +1465,12 @@ footer p{
   color:var(--muted);
   font-size:12px;
   margin-bottom:5px;
+}
+
+.summary-line.delivery{
+  padding-top:9px;
+  margin-top:9px;
+  border-top:1px solid var(--line);
 }
 
 .summary-final{
@@ -1802,10 +1801,6 @@ footer p{
     grid-column:auto;
   }
 
-  .delivery-options{
-    grid-template-columns:1fr;
-  }
-
   .payment-options{
     grid-template-columns:1fr;
   }
@@ -2076,8 +2071,8 @@ footer p{
 
       <p>
         Elegí tus productos, agregalos al pedido
-        y completá tus datos para solicitar delivery
-        o retiro.
+        y completá tus datos para solicitar
+        delivery.
       </p>
 
     </div>
@@ -2406,7 +2401,7 @@ footer p{
       </div>
 
       <p>
-        Elegís tus productos, completás los datos
+        Elegís tus productos, completás tus datos
         y recibís el pedido por WhatsApp para
         coordinar la entrega.
       </p>
@@ -2446,7 +2441,7 @@ footer p{
 
         <p>
           Indicás tu nombre, teléfono, dirección,
-          modalidad de entrega y forma de pago.
+          zona y forma de pago.
         </p>
 
       </div>
@@ -2463,8 +2458,8 @@ footer p{
         </h3>
 
         <p>
-          El pedido se prepara automáticamente
-          y se envía por WhatsApp para coordinarlo.
+          El pedido se prepara y se envía por
+          WhatsApp para coordinar la entrega.
         </p>
 
       </div>
@@ -2725,7 +2720,7 @@ footer p{
       <div class="cart-total-row">
 
         <span>
-          Total
+          Subtotal
         </span>
 
         <strong id="cartTotal">
@@ -2734,10 +2729,21 @@ footer p{
 
       </div>
 
+      <div class="cart-delivery-row">
+
+        <span>
+          🚚 Delivery
+        </span>
+
+        <strong>
+          A confirmar
+        </strong>
+
+      </div>
+
       <div class="delivery-note">
-        🚚 Podés elegir delivery o retiro al
-        completar el pedido. El costo del delivery
-        se coordina por WhatsApp.
+        🚚 El costo del delivery se confirma
+        según la zona antes de finalizar el pedido.
       </div>
 
       <button
@@ -2785,71 +2791,10 @@ footer p{
     <div class="checkout-content">
 
       <p class="checkout-intro">
-        Completá tus datos. Al confirmar,
-        se abrirá WhatsApp con el pedido
-        listo para enviar.
+        Completá tus datos para solicitar el
+        delivery. Al confirmar, se abrirá WhatsApp
+        con el pedido listo para enviar.
       </p>
-
-
-      <!-- ENTREGA -->
-
-      <label
-        style="
-          display:block;
-          color:var(--pink-dark);
-          font-size:13px;
-          font-weight:800;
-          margin-bottom:9px;
-        ">
-
-        ¿Cómo querés recibirlo?
-
-      </label>
-
-
-      <div class="delivery-options">
-
-        <label
-          class="delivery-option selected"
-          id="deliveryOption">
-
-          <input
-            type="radio"
-            name="deliveryType"
-            value="Delivery"
-            checked>
-
-          <strong>
-            🚚 Delivery
-          </strong>
-
-          <span>
-            Recibir en mi domicilio
-          </span>
-
-        </label>
-
-
-        <label
-          class="delivery-option"
-          id="pickupOption">
-
-          <input
-            type="radio"
-            name="deliveryType"
-            value="Retiro">
-
-          <strong>
-            📦 Retiro
-          </strong>
-
-          <span>
-            Coordinar punto de retiro
-          </span>
-
-        </label>
-
-      </div>
 
 
       <!-- DATOS -->
@@ -2865,7 +2810,8 @@ footer p{
           <input
             type="text"
             id="customerName"
-            placeholder="Tu nombre">
+            placeholder="Tu nombre"
+            autocomplete="name">
 
         </div>
 
@@ -2879,14 +2825,14 @@ footer p{
           <input
             type="tel"
             id="customerPhone"
-            placeholder="Ej. 261 123 4567">
+            placeholder="Ej. 261 123 4567"
+            autocomplete="tel">
 
         </div>
 
 
         <div
-          class="form-group full"
-          id="addressGroup">
+          class="form-group full">
 
           <label>
             Dirección de entrega
@@ -2896,17 +2842,18 @@ footer p{
           <input
             type="text"
             id="customerAddress"
-            placeholder="Calle, número, barrio">
+            placeholder="Calle, número, barrio"
+            autocomplete="street-address">
 
         </div>
 
 
         <div
-          class="form-group full"
-          id="cityGroup">
+          class="form-group full">
 
           <label>
             Localidad / zona
+            <span class="required">*</span>
           </label>
 
           <input
@@ -2968,18 +2915,6 @@ footer p{
           <input
             type="radio"
             name="payment"
-            value="Transferencia">
-
-          🏦 Transferencia
-
-        </label>
-
-
-        <label class="payment-option">
-
-          <input
-            type="radio"
-            name="payment"
             value="Mercado Pago">
 
           📱 Mercado Pago
@@ -3000,10 +2935,22 @@ footer p{
         <div id="checkoutSummary">
         </div>
 
+        <div class="summary-line delivery">
+
+          <span>
+            Delivery
+          </span>
+
+          <span>
+            A confirmar
+          </span>
+
+        </div>
+
         <div class="summary-final">
 
           <span>
-            Total
+            Productos
           </span>
 
           <span id="checkoutTotal">
@@ -3168,6 +3115,10 @@ const floatingCartCount =
   document.getElementById("floatingCartCount");
 
 
+/* =====================================
+   ACTUALIZAR CARRITO
+===================================== */
+
 function updateCart(){
 
   cartItems.innerHTML = "";
@@ -3222,8 +3173,11 @@ function updateCart(){
           <div class="quantity-controls">
 
             <button
-              onclick="changeQuantity(${index},-1)">
+              onclick="changeQuantity(${index},-1)"
+              aria-label="Disminuir cantidad">
+
               −
+
             </button>
 
             <span class="quantity-number">
@@ -3231,8 +3185,11 @@ function updateCart(){
             </span>
 
             <button
-              onclick="changeQuantity(${index},1)">
+              onclick="changeQuantity(${index},1)"
+              aria-label="Aumentar cantidad">
+
               +
+
             </button>
 
           </div>
@@ -3242,15 +3199,17 @@ function updateCart(){
         <div>
 
           <div class="cart-item-total">
+
             ${formatPrice(
               item.price * item.quantity
             )}
+
           </div>
 
           <button
             class="remove-item"
             onclick="removeFromCart(${index})"
-            aria-label="Eliminar">
+            aria-label="Eliminar producto">
 
             ×
 
@@ -3300,6 +3259,8 @@ function updateCart(){
 
 /* =====================================
    AGREGAR PRODUCTO
+   IMPORTANTE:
+   NO ABRE EL CARRITO
 ===================================== */
 
 function addToCart(name,price){
@@ -3331,7 +3292,11 @@ function addToCart(name,price){
 
   updateCart();
 
-  openCart();
+
+  /*
+    El carrito NO se abre automáticamente.
+    El usuario lo abre tocando el ícono.
+  */
 
 }
 
@@ -3341,6 +3306,8 @@ function addToCart(name,price){
 ===================================== */
 
 function changeQuantity(index,change){
+
+  if(!cart[index]) return;
 
   cart[index].quantity += change;
 
@@ -3390,6 +3357,30 @@ document
         Number(card.dataset.price);
 
       addToCart(name,price);
+
+
+      /*
+        Pequeña confirmación visual
+        sin abrir el carrito.
+      */
+
+      const textoOriginal =
+        button.innerHTML;
+
+      button.innerHTML =
+        "✓ Agregado";
+
+      button.style.background =
+        "var(--pink-dark)";
+
+      setTimeout(() => {
+
+        button.innerHTML =
+          textoOriginal;
+
+        button.style.background = "";
+
+      },1000);
 
     });
 
@@ -3453,6 +3444,23 @@ cartOverlay.addEventListener("click",(event)=>{
   if(event.target === cartOverlay){
 
     closeCart();
+
+  }
+
+});
+
+
+/* =====================================
+   CERRAR CON ESC
+===================================== */
+
+document.addEventListener("keydown",(event)=>{
+
+  if(event.key === "Escape"){
+
+    closeCart();
+
+    closeCheckout();
 
   }
 
@@ -3580,66 +3588,6 @@ function updateCheckoutSummary(){
 
 
 /* =====================================
-   OPCIÓN DELIVERY / RETIRO
-===================================== */
-
-const deliveryOption =
-  document.getElementById("deliveryOption");
-
-const pickupOption =
-  document.getElementById("pickupOption");
-
-const addressGroup =
-  document.getElementById("addressGroup");
-
-const cityGroup =
-  document.getElementById("cityGroup");
-
-
-document
-  .querySelectorAll(
-    'input[name="deliveryType"]'
-  )
-  .forEach(input => {
-
-    input.addEventListener("change", () => {
-
-      document
-        .querySelectorAll(".delivery-option")
-        .forEach(option => {
-
-          option.classList.remove(
-            "selected"
-          );
-
-        });
-
-
-      input
-        .closest(".delivery-option")
-        .classList.add("selected");
-
-
-      if(input.value === "Delivery"){
-
-        addressGroup.style.display = "";
-
-        cityGroup.style.display = "";
-
-      }else{
-
-        addressGroup.style.display = "none";
-
-        cityGroup.style.display = "none";
-
-      }
-
-    });
-
-  });
-
-
-/* =====================================
    OPCIÓN DE PAGO
 ===================================== */
 
@@ -3709,14 +3657,6 @@ document
         .value.trim();
 
 
-    const delivery =
-      document
-        .querySelector(
-          'input[name="deliveryType"]:checked'
-        )
-        .value;
-
-
     const address =
       document
         .getElementById("customerAddress")
@@ -3742,6 +3682,10 @@ document
         )
         .value;
 
+
+    /* =========================
+       VALIDACIONES
+    ========================= */
 
     if(!name){
 
@@ -3773,13 +3717,10 @@ document
     }
 
 
-    if(
-      delivery === "Delivery" &&
-      !address
-    ){
+    if(!address){
 
       alert(
-        "Para delivery necesitamos la dirección de entrega."
+        "Por favor ingresá la dirección de entrega."
       );
 
       document
@@ -3791,18 +3732,38 @@ document
     }
 
 
+    if(!city){
+
+      alert(
+        "Por favor ingresá la localidad o zona."
+      );
+
+      document
+        .getElementById("customerCity")
+        .focus();
+
+      return;
+
+    }
+
+
+    /* =========================
+       ARMAR PEDIDO
+    ========================= */
+
     let total = 0;
 
 
     let message =
       "Hola AG ~creaciones~ 👋\n\n";
 
+
     message +=
-      "*QUIERO HACER UN PEDIDO*\n\n";
+      "*QUIERO HACER UN PEDIDO POR DELIVERY*\n\n";
 
 
     message +=
-      "*Productos:*\n";
+      "*PRODUCTOS:*\n";
 
 
     cart.forEach(item => {
@@ -3826,18 +3787,24 @@ document
 
 
     message +=
-      "\n*TOTAL: " +
+      "\n*SUBTOTAL: " +
       formatPrice(total) +
-      "*\n\n";
+      "*\n";
 
 
     message +=
-      "*Datos del cliente:*\n";
+      "Delivery: A confirmar según zona\n";
+
+
+    message +=
+      "\n*DATOS DEL CLIENTE:*\n";
+
 
     message +=
       "Nombre: " +
       name +
       "\n";
+
 
     message +=
       "Teléfono: " +
@@ -3846,28 +3813,15 @@ document
 
 
     message +=
-      "Modalidad: " +
-      delivery +
+      "Dirección: " +
+      address +
       "\n";
 
 
-    if(delivery === "Delivery"){
-
-      message +=
-        "Dirección: " +
-        address +
-        "\n";
-
-      if(city){
-
-        message +=
-          "Localidad/Zona: " +
-          city +
-          "\n";
-
-      }
-
-    }
+    message +=
+      "Localidad/Zona: " +
+      city +
+      "\n";
 
 
     message +=
@@ -3887,8 +3841,22 @@ document
 
 
     message +=
-      "\nQuedo a la espera de la confirmación. ¡Gracias!";
+      "\n*Total de productos: " +
+      formatPrice(total) +
+      "*";
 
+
+    message +=
+      "\nEl costo del delivery se confirma según la zona.";
+
+
+    message +=
+      "\n\nQuedo a la espera de la confirmación. ¡Gracias!";
+
+
+    /* =========================
+       WHATSAPP
+    ========================= */
 
     const whatsappURL =
       "https://wa.me/" +
