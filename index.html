@@ -17,7 +17,6 @@
   --pink:#D94F70;
   --pink-soft:#F4A6B8;
   --pink-light:#FCE1E7;
-
   --coral:#E87873;
 
   --cream:#E8DCCB;
@@ -28,19 +27,16 @@
   --leather-light:#B98A70;
 
   --white:#FFFFFF;
-
   --line:#DCCDBA;
 
   --text:#C9365B;
   --muted:#9C737B;
 
+  --green:#25D366;
   --shadow:0 15px 40px rgba(201,54,91,.12);
 
   --radius:22px;
 }
-
-
-/* RESET */
 
 *{
   box-sizing:border-box;
@@ -61,6 +57,10 @@ body{
   overflow-x:hidden;
 }
 
+body.cart-open{
+  overflow:hidden;
+}
+
 a{
   color:inherit;
   text-decoration:none;
@@ -71,8 +71,15 @@ img{
   display:block;
 }
 
-button{
+button,
+input,
+textarea,
+select{
   font-family:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 .container{
@@ -81,7 +88,9 @@ button{
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
   position:sticky;
@@ -99,9 +108,6 @@ header{
   justify-content:space-between;
   gap:25px;
 }
-
-
-/* LOGO */
 
 .logo{
   display:flex;
@@ -167,7 +173,7 @@ header{
 
 .nav-button{
   background:var(--pink);
-  color:#FFFFFF!important;
+  color:#fff!important;
   padding:12px 19px!important;
   border-radius:50px;
   transition:.3s;
@@ -180,6 +186,39 @@ header{
 
 .nav-button::after{
   display:none;
+}
+
+.cart-nav-button{
+  position:relative;
+  border:0;
+  background:var(--pink-dark);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:50px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.cart-nav-button:hover{
+  transform:translateY(-2px);
+  background:var(--pink);
+}
+
+.cart-count{
+  position:absolute;
+  top:-8px;
+  right:-7px;
+  min-width:22px;
+  height:22px;
+  padding:0 5px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#fff;
+  color:var(--pink-dark);
+  border:2px solid var(--pink-dark);
+  font-size:11px;
+  font-weight:800;
 }
 
 .menu-toggle{
@@ -195,24 +234,23 @@ header{
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
   padding:75px 0 60px;
-
   background:
     radial-gradient(
       circle at 10% 20%,
       rgba(244,166,184,.38),
       transparent 30%
     ),
-
     radial-gradient(
       circle at 90% 80%,
       rgba(232,120,115,.18),
       transparent 35%
     ),
-
     var(--cream);
 }
 
@@ -285,11 +323,12 @@ header{
   font-size:14px;
   transition:.3s;
   cursor:pointer;
+  border:0;
 }
 
 .btn-primary{
   background:var(--pink);
-  color:white;
+  color:#fff;
   box-shadow:0 10px 25px rgba(201,54,91,.18);
 }
 
@@ -324,15 +363,13 @@ header{
   width:min(470px,90vw);
   aspect-ratio:1;
   border-radius:50%;
-
   background:
     radial-gradient(
       circle at 35% 25%,
-      #FFFFFF 0%,
+      #fff 0%,
       #F4EBDD 38%,
       #E0C8B1 100%
     );
-
   position:relative;
   box-shadow:var(--shadow);
 }
@@ -344,14 +381,12 @@ header{
   left:50%;
   top:53%;
   transform:translate(-50%,-50%);
-
   background:
     linear-gradient(
       145deg,
       var(--leather-light),
       var(--leather)
     );
-
   border-radius:28px 28px 35px 35px;
   box-shadow:0 28px 45px rgba(201,54,91,.18);
   transition:.5s ease;
@@ -423,7 +458,9 @@ header{
 }
 
 
-/* TRUST */
+/* =========================
+   TRUST
+========================= */
 
 .trust{
   border-top:1px solid var(--line);
@@ -464,7 +501,9 @@ header{
 }
 
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
 
 .section{
   padding:90px 0;
@@ -493,7 +532,9 @@ header{
 }
 
 
-/* CATEGORY FILTER */
+/* =========================
+   CATEGORY
+========================= */
 
 .category-bar{
   display:flex;
@@ -518,12 +559,14 @@ header{
 .category-btn.active{
   background:var(--pink);
   border-color:var(--pink);
-  color:white;
+  color:#fff;
   transform:translateY(-2px);
 }
 
 
-/* PRODUCTS */
+/* =========================
+   PRODUCTS
+========================= */
 
 .products{
   display:grid;
@@ -551,7 +594,7 @@ header{
   left:15px;
   z-index:5;
   background:var(--pink);
-  color:white;
+  color:#fff;
   padding:7px 11px;
   border-radius:50px;
   font-size:10px;
@@ -562,14 +605,12 @@ header{
 
 .product-image{
   aspect-ratio:1/1;
-
   background:
     linear-gradient(
       145deg,
       #F4EBDD,
       #E5D0B9
     );
-
   display:flex;
   align-items:center;
   justify-content:center;
@@ -589,21 +630,17 @@ header{
 .product-shape{
   width:130px;
   height:155px;
-
   background:
     linear-gradient(
       145deg,
       var(--leather-light),
       var(--leather)
     );
-
   border-radius:20px;
   position:relative;
   z-index:2;
-
   box-shadow:
     0 22px 30px rgba(201,54,91,.16);
-
   transition:.4s ease;
 }
 
@@ -656,6 +693,12 @@ header{
   color:var(--pink-dark);
 }
 
+.product-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
 .product-btn{
   display:flex;
   width:100%;
@@ -664,8 +707,9 @@ header{
   justify-content:center;
   border-radius:12px;
   background:var(--pink);
-  color:white;
-  font-size:13px;
+  color:#fff;
+  border:0;
+  font-size:12px;
   font-weight:700;
   transition:.3s;
 }
@@ -675,8 +719,19 @@ header{
   transform:translateY(-2px);
 }
 
+.product-btn.secondary{
+  background:var(--pink-light);
+  color:var(--pink-dark);
+}
 
-/* ARTESANAL */
+.product-btn.secondary:hover{
+  background:var(--pink-soft);
+}
+
+
+/* =========================
+   ARTESANAL
+========================= */
 
 .artisan{
   background:#F4E3D8;
@@ -732,14 +787,12 @@ header{
 .artisan-visual{
   min-height:420px;
   border-radius:30px;
-
   background:
     linear-gradient(
       145deg,
       #F4A6B8,
       #D94F70
     );
-
   position:relative;
   overflow:hidden;
   box-shadow:var(--shadow);
@@ -759,7 +812,9 @@ header{
 }
 
 
-/* PROCESS */
+/* =========================
+   PROCESS
+========================= */
 
 .process{
   display:grid;
@@ -805,7 +860,9 @@ header{
 }
 
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about{
   background:#EFE1D1;
@@ -821,20 +878,17 @@ header{
 .about-box{
   min-height:430px;
   border-radius:30px;
-
   background:
     radial-gradient(
       circle at 25% 25%,
       #FFFDF9,
       transparent 25%
     ),
-
     linear-gradient(
       145deg,
       #F4A6B8,
       #D9828E
     );
-
   position:relative;
   box-shadow:var(--shadow);
   overflow:hidden;
@@ -878,7 +932,9 @@ header{
 }
 
 
-/* CTA */
+/* =========================
+   CTA
+========================= */
 
 .cta{
   padding:80px 0;
@@ -907,7 +963,9 @@ header{
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   background:#E9D4CF;
@@ -970,7 +1028,9 @@ footer p{
 }
 
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP
+========================= */
 
 .whatsapp-float{
   position:fixed;
@@ -979,8 +1039,8 @@ footer p{
   width:58px;
   height:58px;
   border-radius:50%;
-  background:#25D366;
-  color:white;
+  background:var(--green);
+  color:#fff;
   display:grid;
   place-items:center;
   font-size:27px;
@@ -1009,7 +1069,9 @@ footer p{
 }
 
 
-/* REVEAL */
+/* =========================
+   REVEAL
+========================= */
 
 .reveal{
   opacity:0;
@@ -1023,7 +1085,468 @@ footer p{
 }
 
 
-/* TABLET */
+/* =========================
+   CARRITO
+========================= */
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(40,20,25,.48);
+  z-index:3000;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+
+.cart-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.cart-panel{
+  position:absolute;
+  top:0;
+  right:0;
+  width:min(480px,100%);
+  height:100%;
+  background:var(--white);
+  box-shadow:-15px 0 45px rgba(0,0,0,.18);
+  transform:translateX(100%);
+  transition:.35s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-overlay.active .cart-panel{
+  transform:translateX(0);
+}
+
+.cart-header{
+  padding:22px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.cart-header h2{
+  font-family:"Fraunces",serif;
+  color:var(--pink-dark);
+  font-size:27px;
+}
+
+.close-cart{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:var(--pink-light);
+  color:var(--pink-dark);
+  font-size:22px;
+}
+
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+  padding:20px;
+}
+
+.empty-cart{
+  text-align:center;
+  padding:55px 20px;
+  color:var(--muted);
+}
+
+.empty-cart-icon{
+  font-size:50px;
+  margin-bottom:12px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:65px 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.cart-item-image{
+  width:65px;
+  height:65px;
+  border-radius:15px;
+  background:linear-gradient(145deg,#F4EBDD,#E5D0B9);
+  display:grid;
+  place-items:center;
+  color:var(--leather);
+  font-family:"Fraunces",serif;
+  font-weight:700;
+}
+
+.cart-item h4{
+  color:var(--pink-dark);
+  font-size:14px;
+  margin-bottom:3px;
+}
+
+.cart-item-price{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.quantity-controls{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-top:8px;
+}
+
+.quantity-controls button{
+  width:27px;
+  height:27px;
+  border:1px solid var(--pink-soft);
+  background:var(--pink-light);
+  color:var(--pink-dark);
+  border-radius:7px;
+  font-weight:800;
+}
+
+.quantity-number{
+  min-width:22px;
+  text-align:center;
+  font-size:12px;
+  font-weight:700;
+}
+
+.remove-item{
+  border:0;
+  background:transparent;
+  color:#B86A78;
+  font-size:18px;
+}
+
+.cart-item-total{
+  font-weight:800;
+  color:var(--pink-dark);
+  font-size:13px;
+}
+
+.cart-footer{
+  padding:20px;
+  border-top:1px solid var(--line);
+  background:var(--cream-light);
+}
+
+.cart-total-row{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:15px;
+  color:var(--pink-dark);
+}
+
+.cart-total-row strong{
+  font-size:20px;
+}
+
+.delivery-note{
+  background:var(--pink-light);
+  color:var(--pink-dark);
+  border-radius:12px;
+  padding:11px 13px;
+  font-size:11px;
+  margin-bottom:13px;
+}
+
+.checkout-btn{
+  width:100%;
+  min-height:52px;
+  border:0;
+  border-radius:14px;
+  background:var(--green);
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  transition:.3s;
+}
+
+.checkout-btn:hover{
+  filter:brightness(.94);
+  transform:translateY(-2px);
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout-modal{
+  position:fixed;
+  inset:0;
+  z-index:4000;
+  background:rgba(40,20,25,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.checkout-modal.active{
+  display:flex;
+}
+
+.checkout-box{
+  width:min(650px,100%);
+  max-height:92vh;
+  overflow-y:auto;
+  background:var(--white);
+  border-radius:25px;
+  box-shadow:0 25px 70px rgba(0,0,0,.22);
+}
+
+.checkout-header{
+  padding:24px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.checkout-header h2{
+  font-family:"Fraunces",serif;
+  color:var(--pink-dark);
+  font-size:29px;
+}
+
+.close-checkout{
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:var(--pink-light);
+  color:var(--pink-dark);
+  font-size:21px;
+}
+
+.checkout-content{
+  padding:24px;
+}
+
+.checkout-intro{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:22px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group.full{
+  grid-column:1/-1;
+}
+
+.form-group label{
+  display:block;
+  color:var(--pink-dark);
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#FFFDF9;
+  padding:12px 13px;
+  color:var(--pink-dark);
+  outline:none;
+  font-size:13px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+  border-color:var(--pink);
+  box-shadow:0 0 0 3px rgba(217,79,112,.10);
+}
+
+.form-group textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.delivery-options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.delivery-option{
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:14px;
+  background:#fff;
+  color:var(--pink-dark);
+  transition:.2s;
+}
+
+.delivery-option input{
+  display:none;
+}
+
+.delivery-option.selected{
+  border-color:var(--pink);
+  background:var(--pink-light);
+}
+
+.delivery-option strong{
+  display:block;
+  font-size:13px;
+  margin-bottom:3px;
+}
+
+.delivery-option span{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.payment-options{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:20px;
+}
+
+.payment-option{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 8px;
+  text-align:center;
+  color:var(--pink-dark);
+  font-size:11px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.payment-option.selected{
+  border-color:var(--pink);
+  background:var(--pink-light);
+}
+
+.payment-option input{
+  display:none;
+}
+
+.checkout-summary{
+  background:var(--cream-light);
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:17px;
+}
+
+.checkout-summary-title{
+  color:var(--pink-dark);
+  font-weight:800;
+  font-size:13px;
+  margin-bottom:9px;
+}
+
+.summary-line{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:5px;
+}
+
+.summary-final{
+  border-top:1px solid var(--line);
+  padding-top:10px;
+  margin-top:10px;
+  display:flex;
+  justify-content:space-between;
+  color:var(--pink-dark);
+  font-weight:800;
+}
+
+.send-order-btn{
+  width:100%;
+  min-height:53px;
+  border:0;
+  border-radius:14px;
+  background:var(--green);
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+}
+
+.required{
+  color:var(--pink);
+}
+
+
+/* =========================
+   FLOATING CART
+========================= */
+
+.floating-cart{
+  position:fixed;
+  right:18px;
+  bottom:88px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:0;
+  background:var(--pink);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-size:23px;
+  box-shadow:0 12px 30px rgba(201,54,91,.25);
+  z-index:1900;
+  transition:.3s;
+}
+
+.floating-cart:hover{
+  transform:scale(1.08);
+}
+
+.floating-cart-count{
+  position:absolute;
+  top:-5px;
+  right:-4px;
+  min-width:22px;
+  height:22px;
+  padding:0 5px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--pink-dark);
+  border:2px solid var(--pink);
+  display:grid;
+  place-items:center;
+  font-size:10px;
+  font-weight:800;
+}
+
+
+/* =========================
+   TABLET
+========================= */
 
 @media(max-width:900px){
 
@@ -1060,7 +1583,8 @@ footer p{
     background:var(--cream-light);
   }
 
-  .nav-button{
+  .nav-button,
+  .cart-nav-button{
     text-align:center;
     margin-top:5px;
   }
@@ -1102,7 +1626,9 @@ footer p{
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:520px){
 
@@ -1258,10 +1784,42 @@ footer p{
   .whatsapp-label{
     display:none;
   }
+
+  .product-actions{
+    grid-template-columns:1fr;
+  }
+
+  .floating-cart{
+    right:15px;
+    bottom:88px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
+
+  .delivery-options{
+    grid-template-columns:1fr;
+  }
+
+  .payment-options{
+    grid-template-columns:1fr;
+  }
+
+  .checkout-box{
+    max-height:95vh;
+  }
+
 }
 
 
-/* MOBILE SMALL */
+/* =========================
+   MOBILE SMALL
+========================= */
 
 @media(max-width:360px){
 
@@ -1293,11 +1851,12 @@ footer p{
 </style>
 </head>
 
-
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -1318,21 +1877,25 @@ footer p{
 
     <nav class="nav-links" id="navLinks">
 
-      <a href="#inicio">
-        Inicio
-      </a>
+      <a href="#inicio">Inicio</a>
 
-      <a href="#coleccion">
-        Colección
-      </a>
+      <a href="#coleccion">Colección</a>
 
-      <a href="#proceso">
-        Proceso
-      </a>
+      <a href="#proceso">Proceso</a>
 
-      <a href="#nosotros">
-        Nosotros
-      </a>
+      <a href="#nosotros">Nosotros</a>
+
+      <button
+        class="cart-nav-button"
+        id="openCartNav">
+
+        🛒 Ver pedido
+
+        <span class="cart-count" id="cartCountNav">
+          0
+        </span>
+
+      </button>
 
       <a
         class="nav-button"
@@ -1361,16 +1924,16 @@ footer p{
 </header>
 
 
-
 <main>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="inicio">
 
   <div class="container hero-grid">
-
 
     <div class="reveal">
 
@@ -1378,18 +1941,15 @@ footer p{
         Marroquinería artesanal
       </div>
 
-
       <h1>
         Hecho a mano.
         <span>Hecho para durar.</span>
       </h1>
 
-
       <p>
         Bolsos, mochilas y riñoneras creados artesanalmente,
         cuidando cada detalle para acompañarte todos los días.
       </p>
-
 
       <div class="hero-buttons">
 
@@ -1401,20 +1961,17 @@ footer p{
 
         </a>
 
+        <button
+          class="btn btn-secondary"
+          id="openCartHero">
 
-        <a
-          href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20quiero%20hacer%20una%20consulta."
-          target="_blank"
-          class="btn btn-secondary">
+          🛒 Ver mi pedido
 
-          Hablar por WhatsApp
-
-        </a>
+        </button>
 
       </div>
 
     </div>
-
 
 
     <div class="hero-visual reveal">
@@ -1425,22 +1982,16 @@ footer p{
 
       </div>
 
-
       <div class="hero-detail detail-one">
-
         Trabajo
         <br>
         a mano
-
       </div>
 
-
       <div class="hero-detail detail-two">
-
         Diseño
         <br>
         artesanal
-
       </div>
 
     </div>
@@ -1450,13 +2001,13 @@ footer p{
 </section>
 
 
-
-<!-- CONFIANZA -->
+<!-- =========================
+     CONFIANZA
+========================= -->
 
 <section class="trust">
 
   <div class="container trust-grid">
-
 
     <div class="trust-item">
 
@@ -1470,7 +2021,6 @@ footer p{
 
     </div>
 
-
     <div class="trust-item">
 
       <strong>
@@ -1483,32 +2033,30 @@ footer p{
 
     </div>
 
-
     <div class="trust-item">
 
       <strong>
-        ✓ Atención directa
+        ✓ Delivery
       </strong>
 
       <span>
-        Respondemos tus consultas por WhatsApp.
+        Recibí tu pedido en tu domicilio.
       </span>
 
     </div>
-
 
   </div>
 
 </section>
 
 
-
-<!-- COLECCIÓN -->
+<!-- =========================
+     COLECCIÓN
+========================= -->
 
 <section class="section" id="coleccion">
 
   <div class="container">
-
 
     <div class="section-header">
 
@@ -1526,16 +2074,14 @@ footer p{
 
       </div>
 
-
       <p>
-        Diseños pensados para combinar funcionalidad,
-        comodidad y el carácter único de lo artesanal.
+        Elegí tus productos, agregalos al pedido
+        y completá tus datos para solicitar delivery
+        o retiro.
       </p>
 
     </div>
 
-
-    <!-- CATEGORÍAS -->
 
     <div class="category-bar">
 
@@ -1574,7 +2120,6 @@ footer p{
     </div>
 
 
-
     <div class="products">
 
 
@@ -1582,7 +2127,9 @@ footer p{
 
       <article
         class="product-card reveal"
-        data-category="bolsos">
+        data-category="bolsos"
+        data-name="Bolsos"
+        data-price="180000">
 
         <div class="product-badge">
           Destacado
@@ -1593,7 +2140,6 @@ footer p{
           <div class="product-shape"></div>
 
         </div>
-
 
         <div class="product-info">
 
@@ -1614,27 +2160,38 @@ footer p{
             Desde $180.000
           </div>
 
+          <div class="product-actions">
 
-          <a
-            class="product-btn"
-            href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20me%20interesan%20los%20bolsos."
-            target="_blank">
+            <button
+              class="product-btn add-to-cart">
 
-            Consultar por WhatsApp
+              🛒 Agregar
 
-          </a>
+            </button>
+
+            <a
+              class="product-btn secondary"
+              href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20me%20interesan%20los%20bolsos."
+              target="_blank">
+
+              Consultar
+
+            </a>
+
+          </div>
 
         </div>
 
       </article>
 
 
-
       <!-- MOCHILAS -->
 
       <article
         class="product-card reveal"
-        data-category="mochilas">
+        data-category="mochilas"
+        data-name="Mochilas"
+        data-price="260000">
 
         <div class="product-image">
 
@@ -1648,7 +2205,6 @@ footer p{
           </div>
 
         </div>
-
 
         <div class="product-info">
 
@@ -1669,27 +2225,38 @@ footer p{
             Desde $260.000
           </div>
 
+          <div class="product-actions">
 
-          <a
-            class="product-btn"
-            href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20me%20interesan%20las%20mochilas."
-            target="_blank">
+            <button
+              class="product-btn add-to-cart">
 
-            Consultar por WhatsApp
+              🛒 Agregar
 
-          </a>
+            </button>
+
+            <a
+              class="product-btn secondary"
+              href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20me%20interesan%20las%20mochilas."
+              target="_blank">
+
+              Consultar
+
+            </a>
+
+          </div>
 
         </div>
 
       </article>
 
 
-
       <!-- RIÑONERAS -->
 
       <article
         class="product-card reveal"
-        data-category="rinoneras">
+        data-category="rinoneras"
+        data-name="Riñoneras"
+        data-price="120000">
 
         <div class="product-image">
 
@@ -1703,7 +2270,6 @@ footer p{
           </div>
 
         </div>
-
 
         <div class="product-info">
 
@@ -1724,15 +2290,25 @@ footer p{
             Desde $120.000
           </div>
 
+          <div class="product-actions">
 
-          <a
-            class="product-btn"
-            href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20me%20interesan%20las%20ri%C3%B1oneras."
-            target="_blank">
+            <button
+              class="product-btn add-to-cart">
 
-            Consultar por WhatsApp
+              🛒 Agregar
 
-          </a>
+            </button>
+
+            <a
+              class="product-btn secondary"
+              href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20me%20interesan%20las%20ri%C3%B1oneras."
+              target="_blank">
+
+              Consultar
+
+            </a>
+
+          </div>
 
         </div>
 
@@ -1746,13 +2322,13 @@ footer p{
 </section>
 
 
-
-<!-- ARTESANAL -->
+<!-- =========================
+     ARTESANAL
+========================= -->
 
 <section class="section artisan">
 
   <div class="container artisan-grid">
-
 
     <div class="reveal">
 
@@ -1760,13 +2336,11 @@ footer p{
         El valor de lo artesanal
       </div>
 
-
       <h2>
         Cada puntada
         <br>
         cuenta.
       </h2>
-
 
       <p>
         En AG ~creaciones~ apostamos por productos
@@ -1774,89 +2348,53 @@ footer p{
         materiales y cada detalle del proceso.
       </p>
 
-
       <div class="artisan-list">
 
-
         <div>
-
-          <span class="check">
-            ✓
-          </span>
-
-          <span>
-            Trabajo artesanal
-          </span>
-
+          <span class="check">✓</span>
+          <span>Trabajo artesanal</span>
         </div>
 
-
         <div>
-
-          <span class="check">
-            ✓
-          </span>
-
-          <span>
-            Terminaciones cuidadas
-          </span>
-
+          <span class="check">✓</span>
+          <span>Terminaciones cuidadas</span>
         </div>
 
-
         <div>
-
-          <span class="check">
-            ✓
-          </span>
-
-          <span>
-            Diseños funcionales
-          </span>
-
+          <span class="check">✓</span>
+          <span>Diseños funcionales</span>
         </div>
 
-
         <div>
-
-          <span class="check">
-            ✓
-          </span>
-
-          <span>
-            Atención personalizada
-          </span>
-
+          <span class="check">✓</span>
+          <span>Atención personalizada</span>
         </div>
-
 
       </div>
 
     </div>
 
-
     <div class="artisan-visual reveal"></div>
-
 
   </div>
 
 </section>
 
 
-
-<!-- PROCESO -->
+<!-- =========================
+     PROCESO
+========================= -->
 
 <section class="section" id="proceso">
 
   <div class="container">
-
 
     <div class="section-header">
 
       <div>
 
         <div class="eyebrow">
-          Cómo trabajamos
+          Cómo comprar
         </div>
 
         <h2>
@@ -1867,18 +2405,16 @@ footer p{
 
       </div>
 
-
       <p>
-        Desde la elección del producto hasta la entrega,
-        buscamos que comprar sea fácil y claro.
+        Elegís tus productos, completás los datos
+        y recibís el pedido por WhatsApp para
+        coordinar la entrega.
       </p>
 
     </div>
 
 
-
     <div class="process">
-
 
       <div class="process-card reveal">
 
@@ -1891,8 +2427,8 @@ footer p{
         </h3>
 
         <p>
-          Mirás nuestros modelos y elegís
-          el producto que más te guste.
+          Mirás nuestros modelos y agregás
+          los productos que quieras al pedido.
         </p>
 
       </div>
@@ -1905,12 +2441,12 @@ footer p{
         </div>
 
         <h3>
-          Consultás
+          Completás tus datos
         </h3>
 
         <p>
-          Nos escribís por WhatsApp para conocer
-          disponibilidad, colores y detalles.
+          Indicás tu nombre, teléfono, dirección,
+          modalidad de entrega y forma de pago.
         </p>
 
       </div>
@@ -1923,16 +2459,15 @@ footer p{
         </div>
 
         <h3>
-          Lo hacemos
+          Confirmás
         </h3>
 
         <p>
-          Preparamos tu pieza cuidando cada detalle
-          del trabajo artesanal.
+          El pedido se prepara automáticamente
+          y se envía por WhatsApp para coordinarlo.
         </p>
 
       </div>
-
 
     </div>
 
@@ -1941,16 +2476,15 @@ footer p{
 </section>
 
 
-
-<!-- NOSOTROS -->
+<!-- =========================
+     NOSOTROS
+========================= -->
 
 <section class="section about" id="nosotros">
 
   <div class="container about-grid">
 
-
     <div class="about-box reveal"></div>
-
 
     <div class="reveal">
 
@@ -1958,13 +2492,11 @@ footer p{
         AG ~creaciones~
       </div>
 
-
       <h2>
         Artesanía que
         <br>
         se lleva puesta.
       </h2>
-
 
       <p>
         Creamos piezas de marroquinería pensando
@@ -1972,33 +2504,30 @@ footer p{
         y el trabajo realizado con dedicación.
       </p>
 
-
       <p>
         Nuestro objetivo es combinar diseño,
         practicidad y calidad para crear accesorios
         que puedan acompañarte durante mucho tiempo.
       </p>
 
+      <button
+        class="btn btn-primary"
+        id="openCartAbout">
 
-      <a
-        href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos."
-        target="_blank"
-        class="btn btn-primary">
+        🛒 Hacer un pedido
 
-        Conocé nuestros productos
-
-      </a>
+      </button>
 
     </div>
-
 
   </div>
 
 </section>
 
 
-
-<!-- CTA -->
+<!-- =========================
+     CTA
+========================= -->
 
 <section class="cta">
 
@@ -2006,32 +2535,39 @@ footer p{
 
     <div class="cta-box reveal">
 
-
       <div class="eyebrow">
         ¿Buscás algo especial?
       </div>
 
-
       <h2>
         Hablemos de tu próximo accesorio.
       </h2>
-
 
       <p>
         Consultanos por modelos, colores,
         disponibilidad o productos personalizados.
       </p>
 
+      <div class="hero-buttons" style="justify-content:center;">
 
-      <a
-        href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20quiero%20consultar%20por%20un%20producto."
-        target="_blank"
-        class="btn btn-primary">
+        <button
+          class="btn btn-primary"
+          id="openCartCTA">
 
-        Escribir por WhatsApp
+          🛒 Hacer pedido
 
-      </a>
+        </button>
 
+        <a
+          href="https://wa.me/5492615320937?text=Hola%20AG%20creaciones%2C%20quiero%20consultar%20por%20un%20producto."
+          target="_blank"
+          class="btn btn-secondary">
+
+          WhatsApp
+
+        </a>
+
+      </div>
 
     </div>
 
@@ -2039,20 +2575,18 @@ footer p{
 
 </section>
 
-
 </main>
 
 
-
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
   <div class="container">
 
-
     <div class="footer-grid">
-
 
       <div>
 
@@ -2069,36 +2603,22 @@ footer p{
       </div>
 
 
-
       <div>
 
         <div class="footer-title">
           Navegación
         </div>
 
-
         <div class="footer-links">
 
-          <a href="#inicio">
-            Inicio
-          </a>
-
-          <a href="#coleccion">
-            Colección
-          </a>
-
-          <a href="#proceso">
-            Proceso
-          </a>
-
-          <a href="#nosotros">
-            Nosotros
-          </a>
+          <a href="#inicio">Inicio</a>
+          <a href="#coleccion">Colección</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#nosotros">Nosotros</a>
 
         </div>
 
       </div>
-
 
 
       <div>
@@ -2106,7 +2626,6 @@ footer p{
         <div class="footer-title">
           Contacto
         </div>
-
 
         <div class="footer-links">
 
@@ -2130,9 +2649,7 @@ footer p{
 
       </div>
 
-
     </div>
-
 
 
     <div class="footer-bottom">
@@ -2148,14 +2665,396 @@ footer p{
 
     </div>
 
-
   </div>
 
 </footer>
 
 
+<!-- =========================
+     CARRITO
+========================= -->
 
-<!-- WHATSAPP -->
+<div
+  class="cart-overlay"
+  id="cartOverlay">
+
+  <div class="cart-panel">
+
+    <div class="cart-header">
+
+      <h2>
+        Mi pedido
+      </h2>
+
+      <button
+        class="close-cart"
+        id="closeCart">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems">
+
+      <div class="empty-cart">
+
+        <div class="empty-cart-icon">
+          🛍️
+        </div>
+
+        <strong>
+          Tu pedido está vacío
+        </strong>
+
+        <p>
+          Agregá productos de la colección.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+      <div class="cart-total-row">
+
+        <span>
+          Total
+        </span>
+
+        <strong id="cartTotal">
+          $0
+        </strong>
+
+      </div>
+
+      <div class="delivery-note">
+        🚚 Podés elegir delivery o retiro al
+        completar el pedido. El costo del delivery
+        se coordina por WhatsApp.
+      </div>
+
+      <button
+        class="checkout-btn"
+        id="goCheckout">
+
+        Continuar con el pedido
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CHECKOUT
+========================= -->
+
+<div
+  class="checkout-modal"
+  id="checkoutModal">
+
+  <div class="checkout-box">
+
+    <div class="checkout-header">
+
+      <h2>
+        Datos del pedido
+      </h2>
+
+      <button
+        class="close-checkout"
+        id="closeCheckout">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="checkout-content">
+
+      <p class="checkout-intro">
+        Completá tus datos. Al confirmar,
+        se abrirá WhatsApp con el pedido
+        listo para enviar.
+      </p>
+
+
+      <!-- ENTREGA -->
+
+      <label
+        style="
+          display:block;
+          color:var(--pink-dark);
+          font-size:13px;
+          font-weight:800;
+          margin-bottom:9px;
+        ">
+
+        ¿Cómo querés recibirlo?
+
+      </label>
+
+
+      <div class="delivery-options">
+
+        <label
+          class="delivery-option selected"
+          id="deliveryOption">
+
+          <input
+            type="radio"
+            name="deliveryType"
+            value="Delivery"
+            checked>
+
+          <strong>
+            🚚 Delivery
+          </strong>
+
+          <span>
+            Recibir en mi domicilio
+          </span>
+
+        </label>
+
+
+        <label
+          class="delivery-option"
+          id="pickupOption">
+
+          <input
+            type="radio"
+            name="deliveryType"
+            value="Retiro">
+
+          <strong>
+            📦 Retiro
+          </strong>
+
+          <span>
+            Coordinar punto de retiro
+          </span>
+
+        </label>
+
+      </div>
+
+
+      <!-- DATOS -->
+
+      <div class="form-grid">
+
+        <div class="form-group">
+
+          <label>
+            Nombre <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Tu nombre">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Teléfono <span class="required">*</span>
+          </label>
+
+          <input
+            type="tel"
+            id="customerPhone"
+            placeholder="Ej. 261 123 4567">
+
+        </div>
+
+
+        <div
+          class="form-group full"
+          id="addressGroup">
+
+          <label>
+            Dirección de entrega
+            <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="customerAddress"
+            placeholder="Calle, número, barrio">
+
+        </div>
+
+
+        <div
+          class="form-group full"
+          id="cityGroup">
+
+          <label>
+            Localidad / zona
+          </label>
+
+          <input
+            type="text"
+            id="customerCity"
+            placeholder="Ej. Maipú, Mendoza">
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Observaciones
+          </label>
+
+          <textarea
+            id="customerNotes"
+            placeholder="Color, tamaño, horario de entrega u otra indicación..."></textarea>
+
+        </div>
+
+      </div>
+
+
+      <!-- PAGO -->
+
+      <label
+        style="
+          display:block;
+          color:var(--pink-dark);
+          font-size:13px;
+          font-weight:800;
+          margin-bottom:9px;
+        ">
+
+        Forma de pago
+
+      </label>
+
+
+      <div class="payment-options">
+
+        <label class="payment-option selected">
+
+          <input
+            type="radio"
+            name="payment"
+            value="Efectivo"
+            checked>
+
+          💵 Efectivo
+
+        </label>
+
+
+        <label class="payment-option">
+
+          <input
+            type="radio"
+            name="payment"
+            value="Transferencia">
+
+          🏦 Transferencia
+
+        </label>
+
+
+        <label class="payment-option">
+
+          <input
+            type="radio"
+            name="payment"
+            value="Mercado Pago">
+
+          📱 Mercado Pago
+
+        </label>
+
+      </div>
+
+
+      <!-- RESUMEN -->
+
+      <div class="checkout-summary">
+
+        <div class="checkout-summary-title">
+          Resumen del pedido
+        </div>
+
+        <div id="checkoutSummary">
+        </div>
+
+        <div class="summary-final">
+
+          <span>
+            Total
+          </span>
+
+          <span id="checkoutTotal">
+            $0
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="send-order-btn"
+        id="sendOrder">
+
+        📲 Confirmar pedido por WhatsApp
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CARRITO FLOTANTE
+========================= -->
+
+<button
+  class="floating-cart"
+  id="floatingCart"
+  aria-label="Ver pedido">
+
+  🛒
+
+  <span
+    class="floating-cart-count"
+    id="floatingCartCount">
+
+    0
+
+  </span>
+
+</button>
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
 
 <div class="whatsapp-label">
   Consultanos
@@ -2172,19 +3071,28 @@ footer p{
 </a>
 
 
-
-<!-- JAVASCRIPT -->
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
-/* MENÚ MOBILE */
+/* =====================================
+   CONFIGURACIÓN
+===================================== */
+
+const WHATSAPP_NUMBER = "5492615320937";
+
+
+/* =====================================
+   MENÚ MOBILE
+===================================== */
 
 const menuToggle =
   document.getElementById("menuToggle");
 
 const navLinks =
   document.getElementById("navLinks");
-
 
 menuToggle.addEventListener("click", () => {
 
@@ -2224,14 +3132,792 @@ document
   });
 
 
+/* =====================================
+   FORMATO DE DINERO
+===================================== */
 
-/* FILTRO DE CATEGORÍAS */
+function formatPrice(price){
+
+  return "$" + Number(price).toLocaleString(
+    "es-AR"
+  );
+
+}
+
+
+/* =====================================
+   CARRITO
+===================================== */
+
+let cart = [];
+
+
+const cartOverlay =
+  document.getElementById("cartOverlay");
+
+const cartItems =
+  document.getElementById("cartItems");
+
+const cartTotal =
+  document.getElementById("cartTotal");
+
+const cartCountNav =
+  document.getElementById("cartCountNav");
+
+const floatingCartCount =
+  document.getElementById("floatingCartCount");
+
+
+function updateCart(){
+
+  cartItems.innerHTML = "";
+
+  if(cart.length === 0){
+
+    cartItems.innerHTML = `
+
+      <div class="empty-cart">
+
+        <div class="empty-cart-icon">
+          🛍️
+        </div>
+
+        <strong>
+          Tu pedido está vacío
+        </strong>
+
+        <p>
+          Agregá productos de la colección.
+        </p>
+
+      </div>
+
+    `;
+
+  }else{
+
+    cart.forEach((item,index) => {
+
+      const div =
+        document.createElement("div");
+
+      div.className = "cart-item";
+
+      div.innerHTML = `
+
+        <div class="cart-item-image">
+          AG
+        </div>
+
+        <div>
+
+          <h4>
+            ${item.name}
+          </h4>
+
+          <div class="cart-item-price">
+            ${formatPrice(item.price)}
+          </div>
+
+          <div class="quantity-controls">
+
+            <button
+              onclick="changeQuantity(${index},-1)">
+              −
+            </button>
+
+            <span class="quantity-number">
+              ${item.quantity}
+            </span>
+
+            <button
+              onclick="changeQuantity(${index},1)">
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+        <div>
+
+          <div class="cart-item-total">
+            ${formatPrice(
+              item.price * item.quantity
+            )}
+          </div>
+
+          <button
+            class="remove-item"
+            onclick="removeFromCart(${index})"
+            aria-label="Eliminar">
+
+            ×
+
+          </button>
+
+        </div>
+
+      `;
+
+      cartItems.appendChild(div);
+
+    });
+
+  }
+
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.price * item.quantity,
+      0
+    );
+
+
+  const quantity =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.quantity,
+      0
+    );
+
+
+  cartTotal.textContent =
+    formatPrice(total);
+
+  cartCountNav.textContent =
+    quantity;
+
+  floatingCartCount.textContent =
+    quantity;
+
+
+  updateCheckoutSummary();
+
+}
+
+
+/* =====================================
+   AGREGAR PRODUCTO
+===================================== */
+
+function addToCart(name,price){
+
+  const existing =
+    cart.find(item =>
+      item.name === name
+    );
+
+
+  if(existing){
+
+    existing.quantity++;
+
+  }else{
+
+    cart.push({
+
+      name:name,
+
+      price:Number(price),
+
+      quantity:1
+
+    });
+
+  }
+
+
+  updateCart();
+
+  openCart();
+
+}
+
+
+/* =====================================
+   CAMBIAR CANTIDAD
+===================================== */
+
+function changeQuantity(index,change){
+
+  cart[index].quantity += change;
+
+
+  if(cart[index].quantity <= 0){
+
+    cart.splice(index,1);
+
+  }
+
+
+  updateCart();
+
+}
+
+
+/* =====================================
+   ELIMINAR
+===================================== */
+
+function removeFromCart(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+
+}
+
+
+/* =====================================
+   BOTONES AGREGAR
+===================================== */
+
+document
+  .querySelectorAll(".add-to-cart")
+  .forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const card =
+        button.closest(".product-card");
+
+      const name =
+        card.dataset.name;
+
+      const price =
+        Number(card.dataset.price);
+
+      addToCart(name,price);
+
+    });
+
+  });
+
+
+/* =====================================
+   ABRIR / CERRAR CARRITO
+===================================== */
+
+function openCart(){
+
+  cartOverlay.classList.add("active");
+
+  document.body.classList.add("cart-open");
+
+}
+
+
+function closeCart(){
+
+  cartOverlay.classList.remove("active");
+
+  document.body.classList.remove("cart-open");
+
+}
+
+
+document
+  .getElementById("openCartNav")
+  .addEventListener("click",openCart);
+
+
+document
+  .getElementById("openCartHero")
+  .addEventListener("click",openCart);
+
+
+document
+  .getElementById("openCartAbout")
+  .addEventListener("click",openCart);
+
+
+document
+  .getElementById("openCartCTA")
+  .addEventListener("click",openCart);
+
+
+document
+  .getElementById("floatingCart")
+  .addEventListener("click",openCart);
+
+
+document
+  .getElementById("closeCart")
+  .addEventListener("click",closeCart);
+
+
+cartOverlay.addEventListener("click",(event)=>{
+
+  if(event.target === cartOverlay){
+
+    closeCart();
+
+  }
+
+});
+
+
+/* =====================================
+   CHECKOUT
+===================================== */
+
+const checkoutModal =
+  document.getElementById("checkoutModal");
+
+
+function openCheckout(){
+
+  if(cart.length === 0){
+
+    alert(
+      "Primero agregá al menos un producto a tu pedido."
+    );
+
+    return;
+
+  }
+
+
+  updateCheckoutSummary();
+
+  checkoutModal.classList.add("active");
+
+}
+
+
+function closeCheckout(){
+
+  checkoutModal.classList.remove("active");
+
+}
+
+
+document
+  .getElementById("goCheckout")
+  .addEventListener("click",openCheckout);
+
+
+document
+  .getElementById("closeCheckout")
+  .addEventListener("click",closeCheckout);
+
+
+checkoutModal.addEventListener(
+  "click",
+  (event)=>{
+
+    if(
+      event.target === checkoutModal
+    ){
+
+      closeCheckout();
+
+    }
+
+  }
+);
+
+
+/* =====================================
+   RESUMEN CHECKOUT
+===================================== */
+
+function updateCheckoutSummary(){
+
+  const summary =
+    document.getElementById("checkoutSummary");
+
+  const totalElement =
+    document.getElementById("checkoutTotal");
+
+
+  if(!summary) return;
+
+
+  summary.innerHTML = "";
+
+
+  cart.forEach(item => {
+
+    const line =
+      document.createElement("div");
+
+    line.className = "summary-line";
+
+    line.innerHTML = `
+
+      <span>
+        ${item.name} × ${item.quantity}
+      </span>
+
+      <span>
+        ${formatPrice(
+          item.price * item.quantity
+        )}
+      </span>
+
+    `;
+
+    summary.appendChild(line);
+
+  });
+
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.price * item.quantity,
+      0
+    );
+
+
+  totalElement.textContent =
+    formatPrice(total);
+
+}
+
+
+/* =====================================
+   OPCIÓN DELIVERY / RETIRO
+===================================== */
+
+const deliveryOption =
+  document.getElementById("deliveryOption");
+
+const pickupOption =
+  document.getElementById("pickupOption");
+
+const addressGroup =
+  document.getElementById("addressGroup");
+
+const cityGroup =
+  document.getElementById("cityGroup");
+
+
+document
+  .querySelectorAll(
+    'input[name="deliveryType"]'
+  )
+  .forEach(input => {
+
+    input.addEventListener("change", () => {
+
+      document
+        .querySelectorAll(".delivery-option")
+        .forEach(option => {
+
+          option.classList.remove(
+            "selected"
+          );
+
+        });
+
+
+      input
+        .closest(".delivery-option")
+        .classList.add("selected");
+
+
+      if(input.value === "Delivery"){
+
+        addressGroup.style.display = "";
+
+        cityGroup.style.display = "";
+
+      }else{
+
+        addressGroup.style.display = "none";
+
+        cityGroup.style.display = "none";
+
+      }
+
+    });
+
+  });
+
+
+/* =====================================
+   OPCIÓN DE PAGO
+===================================== */
+
+document
+  .querySelectorAll(
+    ".payment-option"
+  )
+  .forEach(option => {
+
+    option.addEventListener("click",()=>{
+
+      document
+        .querySelectorAll(".payment-option")
+        .forEach(item => {
+
+          item.classList.remove(
+            "selected"
+          );
+
+        });
+
+
+      option.classList.add("selected");
+
+
+      const radio =
+        option.querySelector(
+          "input"
+        );
+
+      radio.checked = true;
+
+    });
+
+  });
+
+
+/* =====================================
+   ENVIAR PEDIDO POR WHATSAPP
+===================================== */
+
+document
+  .getElementById("sendOrder")
+  .addEventListener("click",()=>{
+
+
+    if(cart.length === 0){
+
+      alert(
+        "No hay productos en el pedido."
+      );
+
+      return;
+
+    }
+
+
+    const name =
+      document
+        .getElementById("customerName")
+        .value.trim();
+
+
+    const phone =
+      document
+        .getElementById("customerPhone")
+        .value.trim();
+
+
+    const delivery =
+      document
+        .querySelector(
+          'input[name="deliveryType"]:checked'
+        )
+        .value;
+
+
+    const address =
+      document
+        .getElementById("customerAddress")
+        .value.trim();
+
+
+    const city =
+      document
+        .getElementById("customerCity")
+        .value.trim();
+
+
+    const notes =
+      document
+        .getElementById("customerNotes")
+        .value.trim();
+
+
+    const payment =
+      document
+        .querySelector(
+          'input[name="payment"]:checked'
+        )
+        .value;
+
+
+    if(!name){
+
+      alert(
+        "Por favor ingresá tu nombre."
+      );
+
+      document
+        .getElementById("customerName")
+        .focus();
+
+      return;
+
+    }
+
+
+    if(!phone){
+
+      alert(
+        "Por favor ingresá tu teléfono."
+      );
+
+      document
+        .getElementById("customerPhone")
+        .focus();
+
+      return;
+
+    }
+
+
+    if(
+      delivery === "Delivery" &&
+      !address
+    ){
+
+      alert(
+        "Para delivery necesitamos la dirección de entrega."
+      );
+
+      document
+        .getElementById("customerAddress")
+        .focus();
+
+      return;
+
+    }
+
+
+    let total = 0;
+
+
+    let message =
+      "Hola AG ~creaciones~ 👋\n\n";
+
+    message +=
+      "*QUIERO HACER UN PEDIDO*\n\n";
+
+
+    message +=
+      "*Productos:*\n";
+
+
+    cart.forEach(item => {
+
+      const subtotal =
+        item.price * item.quantity;
+
+      total += subtotal;
+
+
+      message +=
+        "• " +
+        item.name +
+        " x" +
+        item.quantity +
+        " — " +
+        formatPrice(subtotal) +
+        "\n";
+
+    });
+
+
+    message +=
+      "\n*TOTAL: " +
+      formatPrice(total) +
+      "*\n\n";
+
+
+    message +=
+      "*Datos del cliente:*\n";
+
+    message +=
+      "Nombre: " +
+      name +
+      "\n";
+
+    message +=
+      "Teléfono: " +
+      phone +
+      "\n";
+
+
+    message +=
+      "Modalidad: " +
+      delivery +
+      "\n";
+
+
+    if(delivery === "Delivery"){
+
+      message +=
+        "Dirección: " +
+        address +
+        "\n";
+
+      if(city){
+
+        message +=
+          "Localidad/Zona: " +
+          city +
+          "\n";
+
+      }
+
+    }
+
+
+    message +=
+      "Forma de pago: " +
+      payment +
+      "\n";
+
+
+    if(notes){
+
+      message +=
+        "Observaciones: " +
+        notes +
+        "\n";
+
+    }
+
+
+    message +=
+      "\nQuedo a la espera de la confirmación. ¡Gracias!";
+
+
+    const whatsappURL =
+      "https://wa.me/" +
+      WHATSAPP_NUMBER +
+      "?text=" +
+      encodeURIComponent(message);
+
+
+    window.open(
+      whatsappURL,
+      "_blank"
+    );
+
+  });
+
+
+/* =====================================
+   FILTRO DE CATEGORÍAS
+===================================== */
 
 const categoryButtons =
-  document.querySelectorAll(".category-btn");
+  document.querySelectorAll(
+    ".category-btn"
+  );
 
 const productCards =
-  document.querySelectorAll(".product-card");
+  document.querySelectorAll(
+    ".product-card"
+  );
 
 
 categoryButtons.forEach(button => {
@@ -2239,19 +3925,31 @@ categoryButtons.forEach(button => {
   button.addEventListener("click", () => {
 
     categoryButtons.forEach(btn => {
-      btn.classList.remove("active");
+
+      btn.classList.remove(
+        "active"
+      );
+
     });
 
-    button.classList.add("active");
+
+    button.classList.add(
+      "active"
+    );
+
 
     const filter =
-      button.getAttribute("data-filter");
+      button.getAttribute(
+        "data-filter"
+      );
 
 
     productCards.forEach(card => {
 
       const category =
-        card.getAttribute("data-category");
+        card.getAttribute(
+          "data-category"
+        );
 
 
       if(
@@ -2262,18 +3960,27 @@ categoryButtons.forEach(button => {
         card.style.display = "";
 
         setTimeout(() => {
+
           card.style.opacity = "1";
+
           card.style.transform = "";
-        }, 30);
+
+        },30);
 
       }else{
 
         card.style.opacity = "0";
-        card.style.transform = "scale(.96)";
+
+        card.style.transform =
+          "scale(.96)";
+
 
         setTimeout(() => {
-          card.style.display = "none";
-        }, 250);
+
+          card.style.display =
+            "none";
+
+        },250);
 
       }
 
@@ -2284,11 +3991,14 @@ categoryButtons.forEach(button => {
 });
 
 
-
-/* ANIMACIONES AL HACER SCROLL */
+/* =====================================
+   ANIMACIONES
+===================================== */
 
 const revealElements =
-  document.querySelectorAll(".reveal");
+  document.querySelectorAll(
+    ".reveal"
+  );
 
 
 const observer =
@@ -2300,7 +4010,9 @@ const observer =
 
         if(entry.isIntersecting){
 
-          entry.target.classList.add("visible");
+          entry.target.classList.add(
+            "visible"
+          );
 
           observer.unobserve(
             entry.target
@@ -2326,8 +4038,13 @@ revealElements.forEach(element => {
 });
 
 
-</script>
+/* =====================================
+   INICIALIZAR
+===================================== */
 
+updateCart();
+
+</script>
 
 </body>
 </html>
