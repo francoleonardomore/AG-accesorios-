@@ -54,6 +54,11 @@ html{
   scroll-padding-top:90px;
 }
 
+/* Perspectiva global para toda la inmersión 3D */
+main{
+  perspective:1800px;
+}
+
 body{
   font-family:"DM Sans",sans-serif;
   background:var(--cream);
@@ -157,6 +162,22 @@ header{
   width:100%;
   height:100%;
   object-fit:cover;
+}
+
+.logo-mark-placeholder{
+  width:100%;
+  height:100%;
+
+  display:grid;
+  place-items:center;
+
+  color:#C9A05A;
+
+  font-family:"Playfair Display",serif;
+
+  font-weight:700;
+
+  font-size:16px;
 }
 
 .nav-links{
@@ -433,6 +454,8 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
+
+  perspective:1400px;
 }
 
 .hero-circle{
@@ -452,6 +475,12 @@ header{
   box-shadow:var(--shadow);
 
   position:relative;
+
+  transform-style:preserve-3d;
+
+  transition:transform .15s ease-out,box-shadow .25s ease;
+
+  will-change:transform;
 }
 
 .hero-product-image{
@@ -466,6 +495,10 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
+
+  transform:translateZ(35px);
+
+  box-shadow:0 25px 45px rgba(92,49,47,.25);
 }
 
 .hero-product-image img{
@@ -516,11 +549,32 @@ header{
 
   padding:15px;
 
-  transition:.3s;
+  transition:transform .3s ease,box-shadow .3s ease;
+
+  transform:translateZ(65px);
+
+  animation:floatDetail 5s ease-in-out infinite;
 }
 
 .hero-detail:hover{
-  transform:scale(1.06);
+  transform:translateZ(90px) scale(1.08);
+
+  box-shadow:0 20px 35px rgba(92,49,47,.22);
+
+  animation-play-state:paused;
+}
+
+.detail-two{
+  animation-delay:-2.5s;
+}
+
+@keyframes floatDetail{
+  0%,100%{
+    transform:translateZ(65px) translateY(0);
+  }
+  50%{
+    transform:translateZ(65px) translateY(-10px);
+  }
 }
 
 .detail-one{
@@ -680,6 +734,8 @@ header{
   grid-template-columns:repeat(3,1fr);
 
   gap:22px;
+
+  perspective:1200px;
 }
 
 .product-card{
@@ -693,12 +749,14 @@ header{
 
   position:relative;
 
-  transition:.35s;
+  transform-style:preserve-3d;
+
+  transition:transform .12s ease-out,box-shadow .3s ease;
+
+  will-change:transform;
 }
 
-.product-card:hover{
-  transform:translateY(-7px);
-
+.product-card.tilting{
   box-shadow:var(--shadow);
 }
 
@@ -709,6 +767,8 @@ header{
   left:14px;
 
   z-index:5;
+
+  transform:translateZ(40px);
 
   background:var(--burgundy);
 
@@ -779,6 +839,10 @@ header{
 
 .product-info{
   padding:22px;
+
+  transform:translateZ(18px);
+
+  transition:transform .3s ease;
 }
 
 .product-tag{
@@ -1307,11 +1371,15 @@ footer p{
 
   z-index:2000;
 
-  transition:.25s;
+  transition:transform .25s ease,box-shadow .25s ease;
+
+  transform-style:preserve-3d;
 }
 
 .whatsapp-float:hover{
-  transform:scale(1.08);
+  transform:translateZ(15px) scale(1.1) rotate(8deg);
+
+  box-shadow:0 20px 35px rgba(0,0,0,.24);
 }
 
 .whatsapp-label{
@@ -1364,6 +1432,10 @@ footer p{
   visibility:visible;
 }
 
+.cart-overlay{
+  perspective:1800px;
+}
+
 .cart-panel{
   position:absolute;
 
@@ -1381,13 +1453,15 @@ footer p{
 
   box-shadow:-20px 0 55px rgba(0,0,0,.20);
 
-  transform:translateX(100%);
+  transform:perspective(1800px) rotateY(22deg) translateX(105%);
 
-  transition:.35s;
+  transform-origin:right center;
+
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
 }
 
 .cart-overlay.active .cart-panel{
-  transform:translateX(0);
+  transform:perspective(1800px) rotateY(0deg) translateX(0);
 }
 
 .cart-header{
@@ -1650,6 +1724,10 @@ footer p{
   padding:15px;
 }
 
+.checkout-modal{
+  perspective:1600px;
+}
+
 .checkout-modal.active{
   display:flex;
 }
@@ -1666,6 +1744,19 @@ footer p{
   border-radius:25px;
 
   box-shadow:0 25px 70px rgba(0,0,0,.25);
+
+  transform:perspective(1600px) rotateX(10deg) scale(.94);
+
+  opacity:0;
+
+  animation:checkoutIn .4s ease forwards;
+}
+
+@keyframes checkoutIn{
+  to{
+    transform:perspective(1600px) rotateX(0deg) scale(1);
+    opacity:1;
+  }
 }
 
 .checkout-header{
@@ -1917,11 +2008,15 @@ footer p{
 
   z-index:1900;
 
-  transition:.25s;
+  transition:transform .25s ease,box-shadow .25s ease;
+
+  transform-style:preserve-3d;
 }
 
 .floating-cart:hover{
-  transform:scale(1.08);
+  transform:translateZ(15px) scale(1.1) rotate(-8deg);
+
+  box-shadow:0 20px 35px rgba(104,28,50,.32);
 }
 
 .floating-cart-count{
@@ -1957,17 +2052,19 @@ footer p{
 .reveal{
   opacity:0;
 
-  transform:translateY(22px);
+  transform:perspective(1000px) rotateX(14deg) translateY(35px);
+
+  transform-origin:center bottom;
 
   transition:
-    opacity .65s ease,
-    transform .65s ease;
+    opacity .75s ease,
+    transform .75s ease;
 }
 
 .reveal.visible{
   opacity:1;
 
-  transform:translateY(0);
+  transform:perspective(1000px) rotateX(0deg) translateY(0);
 }
 
 
@@ -2280,7 +2377,8 @@ footer p{
 <a href="#inicio" class="logo">
 
 <div class="logo-mark">
-<img src="logo-ag.jpg" alt="Logo AG Creaciones">
+<img src="logo-ag.jpg" alt="Logo AG Creaciones" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+<div class="logo-mark-placeholder" style="display:none;">AG</div>
 </div>
 
 <div>
@@ -3615,6 +3713,117 @@ aria-label="Contactar por WhatsApp">
 const WHATSAPP_NUMBER = "5492615320937";
 
 let cart = [];
+
+
+/* =========================================================
+   TILT 3D — HERO
+========================================================= */
+
+const heroVisual =
+document.querySelector(".hero-visual");
+
+const heroCircle =
+document.querySelector(".hero-circle");
+
+if(heroVisual && heroCircle && !window.matchMedia("(pointer: coarse)").matches){
+
+heroVisual.addEventListener("mousemove",event=>{
+
+const rect =
+heroVisual.getBoundingClientRect();
+
+const x =
+(event.clientX - rect.left) / rect.width - .5;
+
+const y =
+(event.clientY - rect.top) / rect.height - .5;
+
+const rotateY = x * 24;
+
+const rotateX = y * -24;
+
+heroCircle.style.transform =
+"rotateX("+rotateX+"deg) rotateY("+rotateY+"deg)";
+
+});
+
+heroVisual.addEventListener("mouseleave",()=>{
+
+heroCircle.style.transform =
+"rotateX(0deg) rotateY(0deg)";
+
+});
+
+}
+
+
+/* =========================================================
+   TILT 3D — TARJETAS DE PRODUCTO
+========================================================= */
+
+if(!window.matchMedia("(pointer: coarse)").matches){
+
+document
+.querySelectorAll(".product-card")
+.forEach(card=>{
+
+card.addEventListener("mousemove",event=>{
+
+const rect =
+card.getBoundingClientRect();
+
+const x =
+(event.clientX - rect.left) / rect.width - .5;
+
+const y =
+(event.clientY - rect.top) / rect.height - .5;
+
+const rotateY = x * 14;
+
+const rotateX = y * -14;
+
+card.style.transform =
+"translateY(-7px) translateZ(10px) rotateX("+rotateX+"deg) rotateY("+rotateY+"deg)";
+
+card.classList.add("tilting");
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform =
+"translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg)";
+
+card.classList.remove("tilting");
+
+});
+
+});
+
+}
+
+
+/* =========================================================
+   PARALLAX DE FONDO AL SCROLLEAR
+========================================================= */
+
+const heroSection =
+document.querySelector(".hero");
+
+window.addEventListener("scroll",()=>{
+
+if(!heroSection) return;
+
+const scrolled = window.scrollY;
+
+if(scrolled < window.innerHeight){
+
+heroSection.style.backgroundPosition =
+"center "+(scrolled * .25)+"px";
+
+}
+
+},{passive:true});
 
 
 /* =========================================================
